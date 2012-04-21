@@ -111,6 +111,8 @@ public class Game extends Canvas {
     rocks.add(seedRock);
     seedRock.x = 100;
     seedRock.y = 100;
+    seedRock.nextX = 100;
+    seedRock.nextY = 100;
     entities.add(seedRock);
     freeRockCount = 1;
     planet.addRock(seedRock);
