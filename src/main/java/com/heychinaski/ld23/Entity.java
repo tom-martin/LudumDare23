@@ -3,10 +3,23 @@ package com.heychinaski.ld23;
 import java.awt.Graphics2D;
 
 public abstract class Entity {
-  public int x;
-  public int y;
+  public float x;
+  public float y;
+  
+  public float w;
+  public float h;
+  
+  public float nextX = x;
+  public float nextY = y;
   
   public abstract void update(float tick, Input input);
   
   public abstract void render(Graphics2D g);
+  
+  public abstract void collided(Entity with, float tick);
+
+  public void applyNext() {
+    x = nextX;
+    y = nextY;
+  }
 }

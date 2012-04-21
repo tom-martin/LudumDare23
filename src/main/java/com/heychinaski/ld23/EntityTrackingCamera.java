@@ -20,4 +20,8 @@ public class EntityTrackingCamera extends Camera {
   @Override
   public void render(Graphics2D g) {}
 
+  @Override
+  public void collided(Entity with, float tick) {
+  }
+
 }

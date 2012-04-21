@@ -1,5 +1,7 @@
 package com.heychinaski.ld23;
 
+import static java.lang.Math.round;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
@@ -23,21 +25,21 @@ public class Player extends Entity {
   
   int aimX, aimY;
   
-  static final float MAX_MOMENTUM = 10;
-  static final float ACC = 5;
-  static final float DAMP = 2;
+  static final float MAX_MOMENTUM =5000;
+  static final float ACC = 1000;
+  static final float DAMP = 200;
 
   public Player(Image flyingImage, Image armImage, GraphicsConfiguration gc) {
-    int w = flyingImage.getWidth(null);
-    int h = flyingImage.getHeight(null);
+    w = flyingImage.getWidth(null);
+    h = flyingImage.getHeight(null);
     
-    this.leftFlyImage = gc.createCompatibleImage(w, h, Transparency.TRANSLUCENT);
-    this.rightFlyImage = gc.createCompatibleImage(w, h, Transparency.TRANSLUCENT);
+    this.leftFlyImage = gc.createCompatibleImage((int)w, (int)h, Transparency.TRANSLUCENT);
+    this.rightFlyImage = gc.createCompatibleImage((int)w, (int)h, Transparency.TRANSLUCENT);
     
     Graphics rightG = rightFlyImage.getGraphics();
     rightG.drawImage(flyingImage, 0, 0, null);
     Graphics2D leftG = (Graphics2D) leftFlyImage.getGraphics();
-    leftG.drawImage(flyingImage, 0, 0, w, h, w, 0, 0, h, null);
+    leftG.drawImage(flyingImage, 0, 0, (int)w, (int)h, (int)w, 0, 0, (int)h, null);
     rightG.dispose();
     leftG.dispose();
     
@@ -68,8 +70,8 @@ public class Player extends Entity {
     } else if(xMomentum > 0) xMomentum = Math.max(0, xMomentum - (tick * DAMP));
     else if(xMomentum < 0) xMomentum = Math.min(0, xMomentum + (tick * DAMP));
     
-    x += xMomentum;
-    y += yMomentum;
+    nextX = x + (xMomentum * tick);
+    nextY = y + (yMomentum * tick);
       
     aimX = input.getWorldMouseX();
     aimY = input.getWorldMouseY();
@@ -78,10 +80,21 @@ public class Player extends Entity {
   }
   
   @Override
+  public void collided(Entity entity, float tick) {
+    
+  }
+  
+  @Override
+  public void applyNext() {
+    x = nextX;
+    y = nextY;
+  }
+  
+  @Override
   public void render(Graphics2D g) {
     Image image = xDir < 0 ? leftFlyImage : rightFlyImage;
-    int drawX = x - (image.getWidth(null) / 2);
-    int drawY = y - (image.getHeight(null) / 2);
+    int drawX = round(x) - (image.getWidth(null) / 2);
+    int drawY = round(y) - (image.getHeight(null) / 2);
     g.drawImage(image, drawX, drawY, null);
     
     drawArm(g);
