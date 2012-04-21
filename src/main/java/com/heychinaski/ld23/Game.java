@@ -3,12 +3,13 @@ package com.heychinaski.ld23;
 import static java.lang.Math.round;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,35 @@ public class Game extends Canvas {
       
       @Override
       public void keyPressed(KeyEvent e) { input.keyDown(e.getKeyCode());}
+    });
+    
+    addMouseListener(new MouseListener() {
+
+      @Override
+      public void mouseClicked(MouseEvent arg0) {
+        
+      }
+
+      @Override
+      public void mouseEntered(MouseEvent arg0) {
+        
+      }
+
+      @Override
+      public void mouseExited(MouseEvent arg0) {
+        
+      }
+
+      @Override
+      public void mousePressed(MouseEvent e) {
+        input.setMouseDown(e.getButton());
+      }
+
+      @Override
+      public void mouseReleased(MouseEvent e) {
+        input.setMouseUp(e.getButton());
+      }
+      
     });
   }
   

@@ -3,6 +3,7 @@ package com.heychinaski.ld23;
 public class Input {
 
   public boolean[] pressedKeys = new boolean[1024];
+  public boolean[] mouseButtons = new boolean[3];
   
   public int getMouseX() {
     return mouseX;
@@ -60,6 +61,22 @@ public class Input {
     
     this.worldMouseX = mouseX + ((int)camera.x - (camera.width / 2));
     this.worldMouseY = mouseY + ((int)camera.y - (camera.height / 2));
+  }
+
+  public void setMouseDown(int button) {
+    if(button < mouseButtons.length) {
+      mouseButtons[button] = true;
+    }
+  }
+
+  public void setMouseUp(int button) {
+    if(button < mouseButtons.length) {
+      mouseButtons[button] = false;
+    }
+  }
+  
+  public boolean isMouseDown(int button) {
+    return button < mouseButtons.length && mouseButtons[button]; 
   }
   
 }

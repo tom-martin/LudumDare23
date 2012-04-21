@@ -8,6 +8,7 @@ import java.awt.GraphicsConfiguration;
 import java.awt.Image;
 import java.awt.Transparency;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 
 public class Player extends Entity {
@@ -18,14 +19,17 @@ public class Player extends Entity {
   private Image leftArmImage;
   private Image rightArmImage;
   
+  private Rock heldRock = null;
+  
   float xMomentum = 0;
   float yMomentum = 0;
   
   int xDir = -1;
   
   int aimX, aimY;
+  private long lastHeld;
   
-  static final float MAX_MOMENTUM =5000;
+  static final float MAX_MOMENTUM = 1000;
   static final float ACC = 1000;
   static final float DAMP = 200;
 
@@ -77,17 +81,38 @@ public class Player extends Entity {
     aimY = input.getWorldMouseY();
     
     xDir = x > aimX ? -1 : 1;
+    
+    if(heldRock != null && input.isMouseDown(MouseEvent.BUTTON1)) {
+      heldRock.setHeld(false);
+      heldRock.xMomentum = xMomentum + (input.getWorldMouseX() - x);
+      heldRock.yMomentum = yMomentum + (input.getWorldMouseY() - y);
+      heldRock = null;
+      
+      lastHeld = System.currentTimeMillis();
+    }
   }
   
   @Override
   public void collided(Entity entity, float tick) {
-    
+    if(heldRock == null && entity instanceof Rock && (System.currentTimeMillis() - lastHeld) > 2000) {
+      heldRock = (Rock)entity;
+    }
   }
   
   @Override
   public void applyNext() {
     x = nextX;
     y = nextY;
+    
+    if(heldRock != null) {
+      heldRock.x = x;
+      heldRock.y = y;
+      
+      heldRock.nextX = x;
+      heldRock.nextY = y;
+      
+      heldRock.setHeld(true);
+    }
   }
   
   @Override
@@ -115,6 +140,14 @@ public class Player extends Entity {
     g.translate(x - armXOriginCorrection, y - armYOriginCorrection);
     
     g.rotate(rot, 0, 0);
+    
+    if(heldRock != null) {
+      Graphics2D rockG = (Graphics2D) g.create();
+      rockG.translate((20 * xDir), 0);
+      heldRock.draw(rockG);
+      rockG.dispose();
+    }
+    
     g.fillOval(-5, -5, 10, 10);
     g.drawImage(armImage, armXCorrection, armYCorrection, null);
     

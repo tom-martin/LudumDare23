@@ -9,6 +9,12 @@ public class Rock extends Entity {
   int[] xPositions = new int[12];
   int[] yPositions = new int[12];
   
+  boolean held = false;
+  
+  public void setHeld(boolean held) {
+    this.held = held;
+  }
+
   float xMomentum, yMomentum; 
   
   public Rock() {
@@ -68,23 +74,30 @@ public class Rock extends Entity {
   
   @Override
   public void collided(Entity entity, float tick) {
-   xMomentum *= -1;
-   yMomentum *= -1;
+    if(entity instanceof Player) return;
+    xMomentum *= -1;
+    yMomentum *= -1;
    
-   nextX = x + (xMomentum * tick);
-   nextY = y + (yMomentum * tick);
+    nextX = x + (xMomentum * tick);
+    nextY = y + (yMomentum * tick);
   }
 
   @Override
   public void render(Graphics2D g) {
-    g = (Graphics2D) g.create();
-    g.translate(x, y);
+    if(!held) {
+      g = (Graphics2D) g.create();
+      g.translate(x, y);
+      draw(g);
+      g.dispose();
+    }
+  }
+
+  void draw(Graphics2D g) {
     g.setColor(new Color(255, 200, 100));
     g.fillPolygon(xPositions, yPositions, 12);
     g.setColor(new Color(200, 150, 50));
     g.setStroke(new BasicStroke(5));
     g.drawPolygon(xPositions, yPositions, 12);
-    g.dispose();
   }
 
 }
