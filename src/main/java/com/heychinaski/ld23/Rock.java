@@ -11,80 +11,102 @@ public class Rock extends Entity {
   
   boolean held = false;
   
-  public void setHeld(boolean held) {
-    this.held = held;
-  }
-
-  float xMomentum, yMomentum; 
-  
-  public Rock() {
-    xPositions[0] = -20;
-    yPositions[0] = -20;
-    
-    xPositions[1] = -12;
-    yPositions[1] = -20;
-    
-    xPositions[2] = 12;
-    yPositions[2] = -20;
-    
-    xPositions[3] = 20;
-    yPositions[3] = -20;
-    
-    xPositions[4] = 20;
-    yPositions[4] = -12;
-    
-    xPositions[5] = 20;
-    yPositions[5] = 12;
-    
-    xPositions[6] = 20;
-    yPositions[6] = 20;
-    
-    xPositions[7] = 12;
-    yPositions[7] = 20;
-    
-    xPositions[8] = -12;
-    yPositions[8] = 20;
-    
-    xPositions[9] = -20;
-    yPositions[9] = 20;
-    
-    xPositions[10] = -20;
-    yPositions[10] = 12;
-    
-    xPositions[11] = -20;
-    yPositions[11] = -12;
-    
-    w = 40;
-    h = 40;
-    
-    for(int i = 0; i < xPositions.length; i++) {
-      xPositions[i] += Util.randomInt(12) - 6;
-      yPositions[i] += Util.randomInt(12) - 6;
+  public boolean setHeld(boolean held) {
+    if(planet != null) {
+      held = false;
+      return false;
     }
     
-    xMomentum = Util.randomFloat(200) - 100;
-    yMomentum = Util.randomFloat(200) - 100;
+    this.held = held;
+    return true;
+  }
+
+  float xMomentum, yMomentum;
+  private Planet planet;
+  Color outlineColor = new Color(200, 150, 50);
+  Color fillColor = new Color(255, 200, 100);
+  
+  public Rock() {
+    int size = Util.randomInt(50) + 30;
+    w = size - 20;
+    h = size - 20;
+    
+    xPositions[0] = -size / 2;
+    yPositions[0] = -size / 2;
+    
+    xPositions[1] = -size / 3;
+    yPositions[1] = -size / 2;
+    
+    xPositions[2] = size / 3;
+    yPositions[2] = -size / 2;
+    
+    xPositions[3] = size / 2;
+    yPositions[3] = -size / 2;
+    
+    xPositions[4] = size / 2;
+    yPositions[4] = -size / 3;
+    
+    xPositions[5] = size / 2;
+    yPositions[5] = size / 3;
+    
+    xPositions[6] = size / 2;
+    yPositions[6] = size / 2;
+    
+    xPositions[7] = size / 3;
+    yPositions[7] = size / 2;
+    
+    xPositions[8] = -size / 3;
+    yPositions[8] = size / 2;
+    
+    xPositions[9] = -size / 2;
+    yPositions[9] = size / 2;
+    
+    xPositions[10] = -size / 2;
+    yPositions[10] = size / 3;
+    
+    xPositions[11] = -size / 2;
+    yPositions[11] = -size / 3;
+    
+    
+    for(int i = 0; i < xPositions.length; i++) {
+      xPositions[i] += Util.randomInt(size / 3) - (size / 6);
+      yPositions[i] += Util.randomInt(size / 3) - (size / 6);
+    }
+    
+    xMomentum = Util.randomFloat(500) - 250;
+    yMomentum = Util.randomFloat(500) - 250;
   }
   
   @Override
   public void update(float tick, Input input) {
-    nextX = x + (xMomentum * tick);
-    nextY = y + (yMomentum * tick);
+    if(planet == null) {
+      nextX = x + (xMomentum * tick);
+      nextY = y + (yMomentum * tick);
+    }
   }
   
   @Override
   public void collided(Entity entity, float tick) {
+    if(planet != null || held) return;
     if(entity instanceof Player) return;
+    
+    if(entity instanceof Rock && ((Rock)entity).planet != null) {
+      ((Rock)entity).planet.addRock(this);
+      return;
+    }
+    
     xMomentum *= -1;
     yMomentum *= -1;
    
-    nextX = x + (xMomentum * tick);
-    nextY = y + (yMomentum * tick);
+    if(planet != null) {
+      nextX = x + (xMomentum * tick);
+      nextY = y + (yMomentum * tick);
+    }
   }
 
   @Override
   public void render(Graphics2D g) {
-    if(!held) {
+    if(!held && planet == null) {
       g = (Graphics2D) g.create();
       g.translate(x, y);
       draw(g);
@@ -93,11 +115,24 @@ public class Rock extends Entity {
   }
 
   void draw(Graphics2D g) {
-    g.setColor(new Color(255, 200, 100));
-    g.fillPolygon(xPositions, yPositions, 12);
-    g.setColor(new Color(200, 150, 50));
-    g.setStroke(new BasicStroke(5));
+    fill(g);
+    outline(g);
+  }
+
+  void outline(Graphics2D g) {
+    g.setStroke(new BasicStroke(planet == null ? 5 : 10, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+    g.setColor(outlineColor);
     g.drawPolygon(xPositions, yPositions, 12);
+  }
+  
+  void fill(Graphics2D g) {
+    g.setColor(fillColor);
+    g.fillPolygon(xPositions, yPositions, 12);
+  }
+
+  public void setPlanet(Planet planet) {
+    this.planet = planet;
+    held = false;
   }
 
 }

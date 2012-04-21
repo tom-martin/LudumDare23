@@ -3,6 +3,7 @@ package com.heychinaski.ld23;
 import static java.lang.Math.round;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
@@ -29,9 +30,15 @@ public class Game extends Canvas {
 
   private CollisionManager collisionManager;
   
-  int worldSize = 4096;
+  int worldSize = 2048;
 
   private EntityTrackingCamera camera;
+
+  private List<Rock> rocks;
+
+  private Planet planet;
+
+  private int freeRockCount;
   
   public Game() {
     setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -95,12 +102,21 @@ public class Game extends Canvas {
     
     entities.add(player);
     
-    Rock[] rocks = new Rock[100];
-    for(int i = 0; i < rocks.length; i++) {
-      rocks[i] = new Rock();
-      entities.add(rocks[i]);
-      rocks[i].x = Util.randomInt(worldSize * 2) - worldSize;
-      rocks[i].y = Util.randomInt(worldSize * 2) - worldSize;
+    rocks = new ArrayList<Rock>();
+    
+    planet = new Planet(this);
+    Rock seedRock = new Rock();
+    seedRock.fillColor = new Color(200, 100, 80);
+    seedRock.outlineColor = new Color(120, 100, 80);
+    rocks.add(seedRock);
+    seedRock.x = 100;
+    seedRock.y = 100;
+    entities.add(seedRock);
+    freeRockCount = 1;
+    planet.addRock(seedRock);
+    
+    for(int i = 1; i < 200; i++) {
+      addNewRock();
     }
     
     
@@ -112,6 +128,8 @@ public class Game extends Canvas {
       last = now;
       
       if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
+      
+      if(freeRockCount < 200) addNewRock();
       
       for(int i = 0; i < entities.size(); i++) {
         entities.get(i).update(tick, input);
@@ -131,24 +149,24 @@ public class Game extends Canvas {
       camera.look(g);
       
       
-      renderWithTrans(g, player, rocks, 0, 0);
+      renderWithTrans(g, player, 0, 0);
       if(camera.x < -worldSize + SCREEN_WIDTH) {
-        renderWithTrans(g, player, rocks, -worldSize * 2, 0);
+        renderWithTrans(g, player, -worldSize * 2, 0);
       }
       if(camera.y < -worldSize + SCREEN_HEIGHT) {
-        renderWithTrans(g, player, rocks, 0, -worldSize * 2);
+        renderWithTrans(g, player, 0, -worldSize * 2);
       }
       if(camera.x < -worldSize + SCREEN_WIDTH && camera.y < -worldSize + SCREEN_HEIGHT) {
-        renderWithTrans(g, player, rocks, -worldSize * 2, -worldSize * 2);
+        renderWithTrans(g, player, -worldSize * 2, -worldSize * 2);
       }
       if(camera.x > worldSize - SCREEN_WIDTH) {
-        renderWithTrans(g, player, rocks, worldSize * 2, 0);
+        renderWithTrans(g, player, worldSize * 2, 0);
       }
       if(camera.y > worldSize - SCREEN_HEIGHT) {
-        renderWithTrans(g, player, rocks, 0, worldSize * 2);
+        renderWithTrans(g, player, 0, worldSize * 2);
       }
       if(camera.x > worldSize - SCREEN_WIDTH && camera.y > worldSize - SCREEN_HEIGHT) {
-        renderWithTrans(g, player, rocks, worldSize * 2, worldSize * 2);
+        renderWithTrans(g, player, worldSize * 2, worldSize * 2);
       }
       
 //      g.setColor(Color.white);
@@ -169,8 +187,17 @@ public class Game extends Canvas {
       }
     }    
   }
+  
+  public void addNewRock() {
+    Rock rock = new Rock();
+    rock.x = Util.randomInt(worldSize * 2) - worldSize;
+    rock.y = Util.randomInt(worldSize * 2) - worldSize;
+    entities.add(rock);
+    rocks.add(rock);
+    freeRockCount ++;
+  }
 
-  private void renderWithTrans(Graphics2D g, Player player, Rock[] rocks,
+  private void renderWithTrans(Graphics2D g, Player player,
       int transX, int transY) {
     Graphics2D extraG = (Graphics2D) g.create();
     extraG.translate(transX, transY);
@@ -181,14 +208,19 @@ public class Game extends Canvas {
     float cameraT = camera.y - (SCREEN_WIDTH / 2);
     float cameraB= camera.y + (SCREEN_WIDTH / 2);
     
-    for(int i = 0; i < rocks.length; i++) {
-      Rock rock = rocks[i];
+    for(int i = 0; i < rocks.size(); i++) {
+      Rock rock = rocks.get(i);
       if((rock.x + rock.w) + transX > cameraL && (rock.x - rock.w) + transX < cameraR &&
          (rock.y + rock.h) + transY > cameraT && (rock.y  - rock.h) + transY < cameraB) {
         rock.render(extraG);
       }
     }
+    planet.render(extraG);
     player.render(extraG);
     extraG.dispose();
+  }
+
+  public void decrementFreeRockCount() {
+    freeRockCount --;
   }
 }

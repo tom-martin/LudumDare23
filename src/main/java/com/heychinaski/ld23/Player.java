@@ -95,7 +95,9 @@ public class Player extends Entity {
   @Override
   public void collided(Entity entity, float tick) {
     if(heldRock == null && entity instanceof Rock && (System.currentTimeMillis() - lastHeld) > 2000) {
-      heldRock = (Rock)entity;
+      if(((Rock)entity).setHeld(true)) {
+        heldRock = (Rock)entity;
+      }
     }
   }
   
@@ -110,8 +112,6 @@ public class Player extends Entity {
       
       heldRock.nextX = x;
       heldRock.nextY = y;
-      
-      heldRock.setHeld(true);
     }
   }
   
