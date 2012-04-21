@@ -6,7 +6,6 @@ import java.awt.GraphicsConfiguration;
 import java.awt.Image;
 import java.awt.Transparency;
 import java.awt.event.KeyEvent;
-import java.awt.geom.AffineTransform;
 
 
 public class Player extends Entity {

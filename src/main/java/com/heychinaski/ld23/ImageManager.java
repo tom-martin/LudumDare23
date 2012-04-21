@@ -34,7 +34,7 @@ public class ImageManager {
   }
   
   private Image loadImage(String imageName) {
-    ClassLoader loader = ClassLoader.getSystemClassLoader();
+    ClassLoader loader = getClass().getClassLoader();
     URL url = loader.getResource(imageName);
     return Toolkit.getDefaultToolkit().getImage(url);
   }
