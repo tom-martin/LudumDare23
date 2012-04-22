@@ -63,7 +63,7 @@ public class Pointer extends Entity {
     g.translate(player.x, player.y);
     g.rotate(rot);
     g.translate(-distance, 0);
-    float proxScale = (float) max(0.5, 5 / (prox / 200));
+    float proxScale = (float) max(0.5, 5 / (prox / 300));
     g.scale(proxScale, proxScale);
     
     g.setStroke(basicStroke);

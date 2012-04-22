@@ -19,7 +19,7 @@ public class Rock extends SpaceJunk {
     return true;
   }
 
-  private Planet planet;
+  protected Planet planet;
   
   public Rock() {
     super(80, 30, 20);

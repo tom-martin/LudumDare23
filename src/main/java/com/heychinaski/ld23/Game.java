@@ -38,11 +38,14 @@ public class Game extends Canvas {
 
   private List<Pointer> pointers;
   
+  private List<IceBlock> iceblocks;
+  
+  private List<Cloud> clouds;
+  
   private Planet planet;
 
   private Player player;
 
-  
   public Game() {
     setIgnoreRepaint(true);
     
@@ -109,6 +112,8 @@ public class Game extends Canvas {
     meteors = new ArrayList<Meteor>();
     bullets = new ArrayList<Bullet>();
     pointers = new ArrayList<Pointer>();
+    iceblocks = new ArrayList<IceBlock>();
+    clouds = new ArrayList<Cloud>();
     
     planet = new Planet(this);
     Rock seedRock = new SeedRock();
@@ -126,6 +131,7 @@ public class Game extends Canvas {
     
     for(int i = 0; i < 5; i++) {
       addNewMeteor();
+      addNewIceBlock();
     }
     
     long last = System.currentTimeMillis();
@@ -193,6 +199,11 @@ public class Game extends Canvas {
       }
     }    
   }
+
+  void addCloud(Cloud cloud) {
+    clouds.add(cloud);
+    entities.add(cloud);
+  }
   
   void addNewMeteor() {
     Meteor meteor = new Meteor();
@@ -210,6 +221,24 @@ public class Game extends Canvas {
     meteor.nextY = meteor.y;
     entities.add(meteor);
     meteors.add(meteor);
+  }
+  
+  void addNewIceBlock() {
+    IceBlock iceBlock = new IceBlock();
+    
+    Pointer pointer = new Pointer(player, iceBlock);
+    pointer.fillColor = iceBlock.fillColor;
+    pointer.outlineColor = iceBlock.outlineColor;
+    pointers.add(pointer);
+    entities.add(pointer);
+    iceBlock.pointer = pointer;
+    
+    iceBlock.x = Util.randomInt(worldSize * 2) - worldSize;
+    iceBlock.y = Util.randomInt(worldSize * 2) - worldSize;
+    iceBlock.nextX = iceBlock.x;
+    iceBlock.nextY = iceBlock.y;
+    entities.add(iceBlock);
+    iceblocks.add(iceBlock);
   }
 
   public void addRock(Rock rock) {
@@ -244,6 +273,14 @@ public class Game extends Canvas {
       }
     }
     
+    for(int i = 0; i < iceblocks.size(); i++) {
+      IceBlock iceblock = iceblocks.get(i);
+      if((iceblock.x + iceblock.w) + transX > cameraL && (iceblock.x - iceblock.w) + transX < cameraR &&
+         (iceblock.y + iceblock.h) + transY > cameraT && (iceblock.y  - iceblock.h) + transY < cameraB) {
+        iceblock.render(extraG);
+      }
+    }
+    
     for(int i = 0; i < bullets.size(); i++) {
       Bullet bullet = bullets.get(i);
       if((bullet.x + bullet.w) + transX > cameraL && (bullet.x - bullet.w) + transX < cameraR &&
@@ -253,6 +290,15 @@ public class Game extends Canvas {
     }
     
     planet.render(extraG);
+    
+    for(int i = 0; i < clouds.size(); i++) {
+      Cloud cloud = clouds.get(i);
+      if((cloud.x + cloud.w) + transX > cameraL && (cloud.x - cloud.w) + transX < cameraR &&
+         (cloud.y + cloud.h) + transY > cameraT && (cloud.y  - cloud.h) + transY < cameraB) {
+        cloud.render(extraG);
+      }
+    }
+    
     player.render(extraG);
     
     for(int i = 0; i < pointers.size(); i++) {
@@ -279,5 +325,13 @@ public class Game extends Canvas {
     
     pointers.remove(meteor.pointer);
     entities.remove(meteor.pointer);
+  }
+
+  public void removeIceBlock(IceBlock iceBlock) {
+    iceblocks.remove(iceBlock);
+    entities.remove(iceBlock);
+    
+    pointers.remove(iceBlock.pointer);
+    entities.remove(iceBlock.pointer);
   }
 }
