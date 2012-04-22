@@ -13,5 +13,5 @@ public abstract class Camera extends Entity {
   public void look(Graphics2D g) {
     g.translate((game.getWidth() / 2)-x, (game.getHeight() / 2)-y);
   }
-
+  
 }

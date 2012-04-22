@@ -26,6 +26,8 @@ public class Rock extends SpaceJunk {
   }
 
   protected Planet planet;
+
+  private long lastHit;
   
   public Rock() {
     super(80, 30, 20);
@@ -67,9 +69,12 @@ public class Rock extends SpaceJunk {
       ((Rock)entity).grass.clear();
       return;
     }
-    
-    xMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -xMomentum + entity.xMomentum));
-    yMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -yMomentum + entity.yMomentum));
+ 
+    if(System.currentTimeMillis() - lastHit > 500) {
+      lastHit = System.currentTimeMillis();
+      xMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -xMomentum + entity.xMomentum));
+      yMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -yMomentum + entity.yMomentum));
+    }
   }
 
   @Override

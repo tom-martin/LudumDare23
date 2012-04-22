@@ -1781,5 +1781,13 @@
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\grass3.png"
        inkscape:export-xdpi="19.459999"
        inkscape:export-ydpi="19.459999" />
+    <path
+       style="fill:#aa0000;stroke:#810000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 2715.2983,1461.468 c -41.8418,0 -78.2663,34.0133 -75.7812,75.7813 3.0305,50.9332 87.4775,188.8871 129.3193,188.8871 41.9148,0.6148 123.0736,-106.4979 140.3995,-188.8871 0,-41.8419 -33.9082,-75.7813 -75.75,-75.7813 -23.9032,0 -45.2084,11.0823 -59.0938,28.375 -13.8851,-17.3013 -35.1837,-28.375 -59.0938,-28.375 z"
+       id="path3874"
+       sodipodi:nodetypes="csccscc"
+       inkscape:export-xdpi="9.1574173"
+       inkscape:export-ydpi="9.1574173"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\heart.png" />
   </g>
 </svg>

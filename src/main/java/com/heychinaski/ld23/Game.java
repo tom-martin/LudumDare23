@@ -3,7 +3,9 @@ package com.heychinaski.ld23;
 import static java.lang.Math.round;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
@@ -47,6 +49,8 @@ public class Game extends Canvas {
   private Planet planet;
 
   private Player player;
+  
+  private Image heartImage;
 
   public Game() {
     setIgnoreRepaint(true);
@@ -101,7 +105,9 @@ public class Game extends Canvas {
     entities = new ArrayList<Entity>();
     collisionManager = new CollisionManager(this);
     
-    imageManager = new ImageManager(this, "man_flying.png", "man_arm.png", "grass1.png", "grass2.png", "grass3.png");
+    imageManager = new ImageManager(this, "man_flying.png", "man_arm.png", "grass1.png", "grass2.png", "grass3.png", "heart.png");
+    
+    heartImage = imageManager.get("heart.png");
     
     Graphics2D g = (Graphics2D)strategy.getDrawGraphics();
     player = new Player(imageManager.get("man_flying.png"), imageManager.get("man_arm.png"), g.getDeviceConfiguration());
@@ -142,7 +148,9 @@ public class Game extends Canvas {
       if(Util.randomInt(200) == 0) System.out.println("Fps: " + 1f / tick);
       last = now;
       
-      if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
+      if(input.isKeyDown(KeyEvent.VK_ESCAPE)) gameOver();
+      
+      if(player.health == 0) gameOver();
       
       if(Util.randomInt(1000) == 0 && iceblocks.size() < 3 && planet.isFinished()) {
         addNewIceBlock();
@@ -160,6 +168,8 @@ public class Game extends Canvas {
       if(mousePosition != null) input.update(camera, mousePosition.x, mousePosition.y);
       
       g = (Graphics2D)strategy.getDrawGraphics();
+      Graphics2D orig = g;
+      g = (Graphics2D) g.create();
       g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
       
       bgTile.render(round(-camera.x), round(-camera.y), g);
@@ -188,7 +198,7 @@ public class Game extends Canvas {
       
 //      g.setColor(Color.white);
 //      g.drawRect(-worldSize, -worldSize, worldSize * 2, worldSize * 2);
-      
+      renderHUD(orig);
     
       g.dispose();
       strategy.show();
@@ -203,6 +213,16 @@ public class Game extends Canvas {
         e.printStackTrace();
       }
     }    
+  }
+
+  private void gameOver() {
+    System.exit(0);
+  }
+
+  private void renderHUD(Graphics2D g) {
+    for(int i = 0; i < player.health; i++) {
+      g.drawImage(heartImage, 10 + (i * 37), getHeight() - 50, null);
+    }
   }
 
   void addCloud(Cloud cloud) {

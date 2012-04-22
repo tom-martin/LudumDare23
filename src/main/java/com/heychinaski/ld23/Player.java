@@ -25,12 +25,15 @@ public class Player extends Entity {
   float xMomentum = 0;
   float yMomentum = 0;
   
+  int health = 10;
+  
   int xDir = -1;
   
   int aimX, aimY;
   private long lastHeld;
   
   private long lastFire = 0;
+  private long lastHitTime;
   
   static final float MAX_MOMENTUM = 1000;
   static final float ACC = 1000;
@@ -121,7 +124,9 @@ public class Player extends Entity {
       }
     }
     
-    if(with instanceof Meteor) {
+    if(with instanceof Meteor && System.currentTimeMillis() - lastHitTime > 1000) {
+      health -= 1;
+      lastHitTime = System.currentTimeMillis();
       xMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -xMomentum + ((Meteor)with).xMomentum));
       yMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -yMomentum + ((Meteor)with).yMomentum));
     }
