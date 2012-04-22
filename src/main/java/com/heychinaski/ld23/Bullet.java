@@ -42,7 +42,10 @@ public class Bullet extends Entity {
   @Override
   public void render(Graphics2D g) {
     g.setColor(Color.WHITE);
-    g.fillOval(Math.round(x) - 5, Math.round(y) - 5, 10, 10);
+    g.fillOval(Math.round(x) - 10, Math.round(y) - 10, 20, 20);
+    for(int i = 80; i < 100; i+=5) {
+      g.fillOval(Math.round(x - (xMomentum / i)) - 5, Math.round(y - (yMomentum / i)) - 5, 10, 10);
+    }
     
   }
 

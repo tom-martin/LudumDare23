@@ -36,7 +36,7 @@ public class Player extends Entity {
   static final float ACC = 1000;
   static final float DAMP = 200;
   static final float THROW_SPEED = 200;
-  static final float BULLET_SPEED = 1200;
+  static final float BULLET_SPEED = 600;
   static final float FIRE_PAUSE = 500;
 
   public Player(Image flyingImage, Image armImage, GraphicsConfiguration gc) {

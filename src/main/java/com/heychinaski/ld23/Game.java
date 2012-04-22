@@ -3,8 +3,6 @@ package com.heychinaski.ld23;
 import static java.lang.Math.round;
 
 import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
@@ -126,7 +124,7 @@ public class Game extends Canvas {
     pointers.add(pointer);
     entities.add(pointer);
     
-    for(int i = 1; i < 5; i++) {
+    for(int i = 0; i < 5; i++) {
       addNewMeteor();
     }
     
