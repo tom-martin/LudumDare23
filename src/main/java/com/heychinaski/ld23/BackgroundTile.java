@@ -41,6 +41,11 @@ public class BackgroundTile {
     g.drawImage(image, normX - size, normY, null);
     g.drawImage(image, normX, normY - size, null);
     g.drawImage(image, normX, normY, null);
+    g.drawImage(image, normX + size, normY - size, null);
+    g.drawImage(image, normX - size, normY + size, null);
+    g.drawImage(image, normX + size, normY + size, null);
+    g.drawImage(image, normX + size, normY, null);
+    g.drawImage(image, normX, normY + size, null);
   }
   
   private void renderStar(Graphics2D g) {

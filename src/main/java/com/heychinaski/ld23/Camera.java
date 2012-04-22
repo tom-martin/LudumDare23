@@ -3,16 +3,15 @@ package com.heychinaski.ld23;
 import java.awt.Graphics2D;
 
 public abstract class Camera extends Entity {
-  public int width;
-  public int height;
 
-  public Camera(int width, int height) {
-    this.width = width;
-    this.height = height;
+  Game game;
+
+  public Camera(Game game) {
+    this.game = game;
   }
 
   public void look(Graphics2D g) {
-    g.translate((width / 2)-x, (height / 2)-y);
+    g.translate((game.getWidth() / 2)-x, (game.getHeight() / 2)-y);
   }
 
 }

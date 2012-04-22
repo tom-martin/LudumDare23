@@ -1,5 +1,6 @@
 package com.heychinaski.ld23;
 
+import static java.lang.Math.max;
 import static java.lang.Math.sqrt;
 
 import java.awt.BasicStroke;
@@ -24,10 +25,9 @@ public class Pointer extends Entity {
   BasicStroke basicStroke = new BasicStroke(5, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
   private float prox;
   
-  public Pointer(Player player, Entity tracking, int distance) {
+  public Pointer(Player player, Entity tracking) {
     this.player = player;
     this.tracking = tracking;
-    this.distance = distance;
     
     xPositions[0] = -10;
     yPositions[0] = 0;
@@ -47,10 +47,12 @@ public class Pointer extends Entity {
     
     this.prox = (float) sqrt(((player.x - tracking.x) * (player.x - tracking.x)) + ((player.y - tracking.y) * (player.y - tracking.y)));  
     
-    visible = tracking.x < (game.camera.x - Game.SCREEN_WIDTH / 2) ||
-              tracking.x > (game.camera.x + Game.SCREEN_WIDTH / 2) ||
-              tracking.y < (game.camera.y - Game.SCREEN_HEIGHT / 2) ||
-              tracking.y > (game.camera.y + Game.SCREEN_HEIGHT / 2);
+    visible = tracking.x < (game.camera.x - game.getWidth() / 2) ||
+              tracking.x > (game.camera.x + game.getWidth() / 2) ||
+              tracking.y < (game.camera.y - game.getHeight() / 2) ||
+              tracking.y > (game.camera.y + game.getHeight() / 2);
+  
+    distance = (game.getHeight() / 2) - 40;
   }
 
   @Override
@@ -61,7 +63,7 @@ public class Pointer extends Entity {
     g.translate(player.x, player.y);
     g.rotate(rot);
     g.translate(-distance, 0);
-    float proxScale = 5 / (prox / 200);
+    float proxScale = (float) max(0.5, 5 / (prox / 200));
     g.scale(proxScale, proxScale);
     
     g.setStroke(basicStroke);

@@ -1,5 +1,6 @@
 package com.heychinaski.ld23;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -15,14 +16,13 @@ public class Main {
     JPanel panel = (JPanel) mainWindow.getContentPane();
     
     panel.setPreferredSize(new Dimension(800,600));
-    panel.setLayout(null);
+    panel.setLayout(new BorderLayout());
     
     final Game game = new Game();
-    panel.add(game);
+    panel.add(game, BorderLayout.CENTER);
     
     mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     mainWindow.pack();
-    mainWindow.setResizable(false);
     
     new Thread() {
       public void run() {

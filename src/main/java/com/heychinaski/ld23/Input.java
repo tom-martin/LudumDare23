@@ -59,8 +59,8 @@ public class Input {
     this.mouseX = mouseX;
     this.mouseY = mouseY;
     
-    this.worldMouseX = mouseX + ((int)camera.x - (camera.width / 2));
-    this.worldMouseY = mouseY + ((int)camera.y - (camera.height / 2));
+    this.worldMouseX = mouseX + ((int)camera.x - (camera.game.getWidth() / 2));
+    this.worldMouseY = mouseY + ((int)camera.y - (camera.game.getHeight() / 2));
   }
 
   public void setMouseDown(int button) {

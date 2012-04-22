@@ -24,9 +24,6 @@ public class Game extends Canvas {
   Input input = new Input();
   private ImageManager imageManager;
   
-  public final static int SCREEN_WIDTH = 800;
-  public final static int SCREEN_HEIGHT = 600;
-  
   List<Entity> entities;
 
   private CollisionManager collisionManager;
@@ -49,7 +46,6 @@ public class Game extends Canvas {
 
   
   public Game() {
-    setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
     setIgnoreRepaint(true);
     
     addKeyListener(new KeyListener() {
@@ -95,6 +91,7 @@ public class Game extends Canvas {
   }
   
   public void start() {
+    setSize(1024, 768);
     createBufferStrategy(2);
     BufferStrategy strategy = getBufferStrategy();
     
@@ -105,7 +102,7 @@ public class Game extends Canvas {
     
     Graphics2D g = (Graphics2D)strategy.getDrawGraphics();
     player = new Player(imageManager.get("man_flying.png"), imageManager.get("man_arm.png"), g.getDeviceConfiguration());
-    camera = new EntityTrackingCamera(player, SCREEN_WIDTH, SCREEN_HEIGHT);
+    camera = new EntityTrackingCamera(player, this);
     bgTile = new BackgroundTile(1024, g.getDeviceConfiguration());
     
     entities.add(player);
@@ -125,7 +122,7 @@ public class Game extends Canvas {
     entities.add(seedRock);
     planet.addRock(seedRock);
     
-    Pointer pointer = new Pointer(player, seedRock, (SCREEN_HEIGHT / 2) - 40);
+    Pointer pointer = new Pointer(player, seedRock);
     pointers.add(pointer);
     entities.add(pointer);
     
@@ -161,22 +158,22 @@ public class Game extends Canvas {
       
       
       renderWithTrans(g, player, 0, 0);
-      if(camera.x < -worldSize + SCREEN_WIDTH) {
+      if(camera.x < -worldSize + getWidth()) {
         renderWithTrans(g, player, -worldSize * 2, 0);
       }
-      if(camera.y < -worldSize + SCREEN_HEIGHT) {
+      if(camera.y < -worldSize + getHeight()) {
         renderWithTrans(g, player, 0, -worldSize * 2);
       }
-      if(camera.x < -worldSize + SCREEN_WIDTH && camera.y < -worldSize + SCREEN_HEIGHT) {
+      if(camera.x < -worldSize + getWidth() && camera.y < -worldSize + getHeight()) {
         renderWithTrans(g, player, -worldSize * 2, -worldSize * 2);
       }
-      if(camera.x > worldSize - SCREEN_WIDTH) {
+      if(camera.x > worldSize - getWidth()) {
         renderWithTrans(g, player, worldSize * 2, 0);
       }
-      if(camera.y > worldSize - SCREEN_HEIGHT) {
+      if(camera.y > worldSize - getHeight()) {
         renderWithTrans(g, player, 0, worldSize * 2);
       }
-      if(camera.x > worldSize - SCREEN_WIDTH && camera.y > worldSize - SCREEN_HEIGHT) {
+      if(camera.x > worldSize - getWidth() && camera.y > worldSize - getHeight()) {
         renderWithTrans(g, player, worldSize * 2, worldSize * 2);
       }
       
@@ -202,7 +199,7 @@ public class Game extends Canvas {
   void addNewMeteor() {
     Meteor meteor = new Meteor();
     
-    Pointer pointer = new Pointer(player, meteor, SCREEN_HEIGHT / 2);
+    Pointer pointer = new Pointer(player, meteor);
     pointer.fillColor = meteor.fillColor;
     pointer.outlineColor = meteor.outlineColor;
     pointers.add(pointer);
@@ -227,11 +224,11 @@ public class Game extends Canvas {
     Graphics2D extraG = (Graphics2D) g.create();
     extraG.translate(transX, transY);
     
-    float cameraL = camera.x - (SCREEN_WIDTH / 2);
-    float cameraR= camera.x + (SCREEN_WIDTH / 2);
+    float cameraL = camera.x - (getWidth() / 2);
+    float cameraR= camera.x + (getWidth() / 2);
     
-    float cameraT = camera.y - (SCREEN_WIDTH / 2);
-    float cameraB= camera.y + (SCREEN_WIDTH / 2);
+    float cameraT = camera.y - (getWidth() / 2);
+    float cameraB= camera.y + (getWidth() / 2);
     
     for(int i = 0; i < meteors.size(); i++) {
       Meteor meteor = meteors.get(i);

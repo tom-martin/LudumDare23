@@ -29,7 +29,7 @@ public class Bullet extends Entity {
     nextX = x + (xMomentum * tick);
     nextY = y + (yMomentum * tick);
     
-    if(abs(nextX) - abs(startX) > (Game.SCREEN_WIDTH / 2) - 20 || abs(nextY) - abs(startY) > (Game.SCREEN_HEIGHT / 2)  - 20) {
+    if(abs(nextX) - abs(startX) > (game.getWidth() / 2) - 20 || abs(nextY) - abs(startY) > (game.getHeight() / 2)  - 20) {
       game.removeBullet(this);
     }
  }

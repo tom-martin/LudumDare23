@@ -6,8 +6,8 @@ public class EntityTrackingCamera extends Camera {
   
   private Entity toTrack;
 
-  public EntityTrackingCamera(Entity toTrack, int width, int height) {
-    super(width, height);
+  public EntityTrackingCamera(Entity toTrack, Game game) {
+    super(game);
     this.toTrack = toTrack;
   }
 
