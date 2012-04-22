@@ -132,6 +132,10 @@ public class Game extends Canvas {
     for(int i = 0; i < 5; i++) {
       addNewMeteor();
       addNewIceBlock();
+      
+      Cloud cloud = new Cloud(planet);
+      planet.addCloud(cloud);
+      addCloud(cloud);
     }
     
     long last = System.currentTimeMillis();
@@ -289,8 +293,6 @@ public class Game extends Canvas {
       }
     }
     
-    planet.render(extraG);
-    
     for(int i = 0; i < clouds.size(); i++) {
       Cloud cloud = clouds.get(i);
       if((cloud.x + cloud.w) + transX > cameraL && (cloud.x - cloud.w) + transX < cameraR &&
@@ -298,6 +300,8 @@ public class Game extends Canvas {
         cloud.render(extraG);
       }
     }
+    
+    planet.render(extraG);
     
     player.render(extraG);
     
