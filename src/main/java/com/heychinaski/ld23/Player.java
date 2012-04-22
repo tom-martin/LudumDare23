@@ -25,7 +25,7 @@ public class Player extends Entity {
   float xMomentum = 0;
   float yMomentum = 0;
   
-  int health = 10;
+  int health = 100;
   
   int xDir = -1;
   
@@ -124,11 +124,11 @@ public class Player extends Entity {
       }
     }
     
-    if(with instanceof Meteor && System.currentTimeMillis() - lastHitTime > 1000) {
-      health -= 1;
+    if((with instanceof Enemy || with instanceof Meteor) && System.currentTimeMillis() - lastHitTime > 1000) {
+      health -= Util.randomInt(10);
       lastHitTime = System.currentTimeMillis();
-      xMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -xMomentum + ((Meteor)with).xMomentum));
-      yMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -yMomentum + ((Meteor)with).yMomentum));
+      xMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -xMomentum + with.xMomentum));
+      yMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -yMomentum + with.yMomentum));
     }
   }
   
@@ -148,6 +148,8 @@ public class Player extends Entity {
   
   @Override
   public void render(Graphics2D g) {
+    long timeSinceLastHit = System.currentTimeMillis() - lastHitTime;
+    if(timeSinceLastHit < 1000 && (timeSinceLastHit / 100) % 2 == 0) return;
     Image image = xDir < 0 ? leftFlyImage : rightFlyImage;
     int drawX = round(x) - (image.getWidth(null) / 2);
     int drawY = round(y) - (image.getHeight(null) / 2);

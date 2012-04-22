@@ -3,10 +3,10 @@ package com.heychinaski.ld23;
 import static java.lang.Math.round;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -20,6 +20,8 @@ public class Game extends Canvas {
   private static final int METEOR_COUNT = 8;
 
   private static final long serialVersionUID = 1L;
+
+  private static final int ENEMY_COUNT = 100;
   
   private BackgroundTile bgTile;
   
@@ -46,11 +48,15 @@ public class Game extends Canvas {
   
   private List<Cloud> clouds;
   
+  private List<Enemy> enemies;
+  
   private Planet planet;
 
-  private Player player;
+  Player player;
   
   private Image heartImage;
+
+  private Image alienImage;
 
   public Game() {
     setIgnoreRepaint(true);
@@ -105,9 +111,10 @@ public class Game extends Canvas {
     entities = new ArrayList<Entity>();
     collisionManager = new CollisionManager(this);
     
-    imageManager = new ImageManager(this, "man_flying.png", "man_arm.png", "grass1.png", "grass2.png", "grass3.png", "heart.png");
+    imageManager = new ImageManager(this, "man_flying.png", "man_arm.png", "grass1.png", "grass2.png", "grass3.png", "heart.png", "alien.png");
     
     heartImage = imageManager.get("heart.png");
+    alienImage = imageManager.get("alien.png");
     
     Graphics2D g = (Graphics2D)strategy.getDrawGraphics();
     player = new Player(imageManager.get("man_flying.png"), imageManager.get("man_arm.png"), g.getDeviceConfiguration());
@@ -122,6 +129,7 @@ public class Game extends Canvas {
     pointers = new ArrayList<Pointer>();
     iceblocks = new ArrayList<IceBlock>();
     clouds = new ArrayList<Cloud>();
+    enemies = new ArrayList<Enemy>();
     
     planet = new Planet(this);
     Rock seedRock = new SeedRock();
@@ -141,6 +149,10 @@ public class Game extends Canvas {
       addNewMeteor();
     }
     
+    for(int i = 0; i < ENEMY_COUNT; i++) {
+      addNewEnemy();
+    }
+    
     long last = System.currentTimeMillis();
     while (true) {
       long now = System.currentTimeMillis();
@@ -150,10 +162,14 @@ public class Game extends Canvas {
       
       if(input.isKeyDown(KeyEvent.VK_ESCAPE)) gameOver();
       
-      if(player.health == 0) gameOver();
+      if(player.health <= 0) gameOver();
       
       if(Util.randomInt(1000) == 0 && iceblocks.size() < 3 && planet.isFinished()) {
         addNewIceBlock();
+      }
+      
+      if(Util.randomInt(2000) == 0 && enemies.size() < ENEMY_COUNT) {
+        addNewEnemy();
       }
       
       for(int i = 0; i < entities.size(); i++) {
@@ -215,12 +231,23 @@ public class Game extends Canvas {
     }    
   }
 
+  void addNewEnemy() {
+    Enemy enemy = new Enemy(alienImage);
+    enemy.x = Util.randomInt(worldSize * 2) - worldSize;
+    enemy.y = Util.randomInt(worldSize * 2) - worldSize;
+    enemy.nextX = enemy.x;
+    enemy.nextY = enemy.y;
+    enemies.add(enemy);
+    entities.add(enemy);
+  }
+
   private void gameOver() {
     System.exit(0);
   }
 
   private void renderHUD(Graphics2D g) {
-    for(int i = 0; i < player.health; i++) {
+    g.setClip(new Rectangle(0, getHeight() - 50, Math.round(380 * ((float)player.health / 100)), 50));
+    for(int i = 0; i < 10; i++) {
       g.drawImage(heartImage, 10 + (i * 37), getHeight() - 50, null);
     }
   }
@@ -314,6 +341,14 @@ public class Game extends Canvas {
       }
     }
     
+    for(int i = 0; i < enemies.size(); i++) {
+      Enemy enemy = enemies.get(i);
+      if((enemy.x + enemy.w) + transX > cameraL && (enemy.x - enemy.w) + transX < cameraR &&
+         (enemy.y + enemy.h) + transY > cameraT && (enemy.y  - enemy.h) + transY < cameraB) {
+        enemy.render(extraG);
+      }
+    }
+    
     for(int i = 0; i < clouds.size(); i++) {
       Cloud cloud = clouds.get(i);
       if((cloud.x + cloud.w) + transX > cameraL && (cloud.x - cloud.w) + transX < cameraR &&
@@ -363,5 +398,10 @@ public class Game extends Canvas {
   public void removeRock(Rock rock) {
     rocks.remove(rock);
     entities.remove(rock);
+  }
+
+  public void removeEnemy(Enemy enemy) {
+    enemies.remove(enemy);
+    entities.remove(enemy);
   }
 }

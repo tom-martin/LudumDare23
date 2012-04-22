@@ -61,8 +61,6 @@ public abstract class SpaceJunk extends Entity {
     
     xMomentum = Util.randomFloat(800) - 400;
     yMomentum = Util.randomFloat(800) - 400;
-    
-    System.out.println(xMomentum);
   }
   
   @Override
