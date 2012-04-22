@@ -3,6 +3,8 @@ package com.heychinaski.ld23;
 import static com.heychinaski.ld23.Util.randomInt;
 
 public class Meteor extends SpaceJunk {
+  
+  Pointer pointer;
 
   public Meteor() {
     super(300, 200, 0);

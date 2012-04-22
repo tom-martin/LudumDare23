@@ -4,6 +4,7 @@ import static java.lang.Math.round;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
@@ -30,9 +31,9 @@ public class Game extends Canvas {
 
   private CollisionManager collisionManager;
   
-  int worldSize = 1024;
+  int worldSize = 4096;
 
-  private EntityTrackingCamera camera;
+  EntityTrackingCamera camera;
 
   private List<Rock> rocks;
   
@@ -40,7 +41,12 @@ public class Game extends Canvas {
   
   private List<Bullet> bullets;
 
+  private List<Pointer> pointers;
+  
   private Planet planet;
+
+  private Player player;
+
   
   public Game() {
     setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -98,7 +104,7 @@ public class Game extends Canvas {
     imageManager = new ImageManager(this, "man_flying.png", "man_arm.png");
     
     Graphics2D g = (Graphics2D)strategy.getDrawGraphics();
-    Player player = new Player(imageManager.get("man_flying.png"), imageManager.get("man_arm.png"), g.getDeviceConfiguration());
+    player = new Player(imageManager.get("man_flying.png"), imageManager.get("man_arm.png"), g.getDeviceConfiguration());
     camera = new EntityTrackingCamera(player, SCREEN_WIDTH, SCREEN_HEIGHT);
     bgTile = new BackgroundTile(1024, g.getDeviceConfiguration());
     
@@ -107,6 +113,7 @@ public class Game extends Canvas {
     rocks = new ArrayList<Rock>();
     meteors = new ArrayList<Meteor>();
     bullets = new ArrayList<Bullet>();
+    pointers = new ArrayList<Pointer>();
     
     planet = new Planet(this);
     Rock seedRock = new SeedRock();
@@ -118,7 +125,11 @@ public class Game extends Canvas {
     entities.add(seedRock);
     planet.addRock(seedRock);
     
-    for(int i = 1; i < 10; i++) {
+    Pointer pointer = new Pointer(player, seedRock, (SCREEN_HEIGHT / 2) - 40);
+    pointers.add(pointer);
+    entities.add(pointer);
+    
+    for(int i = 1; i < 5; i++) {
       addNewMeteor();
     }
     
@@ -190,6 +201,14 @@ public class Game extends Canvas {
   
   void addNewMeteor() {
     Meteor meteor = new Meteor();
+    
+    Pointer pointer = new Pointer(player, meteor, SCREEN_HEIGHT / 2);
+    pointer.fillColor = meteor.fillColor;
+    pointer.outlineColor = meteor.outlineColor;
+    pointers.add(pointer);
+    entities.add(pointer);
+    meteor.pointer = pointer;
+    
     meteor.x = Util.randomInt(worldSize * 2) - worldSize;
     meteor.y = Util.randomInt(worldSize * 2) - worldSize;
     meteor.nextX = meteor.x;
@@ -230,16 +249,20 @@ public class Game extends Canvas {
       }
     }
     
-    
-    planet.render(extraG);
-    player.render(extraG);
-    
     for(int i = 0; i < bullets.size(); i++) {
       Bullet bullet = bullets.get(i);
       if((bullet.x + bullet.w) + transX > cameraL && (bullet.x - bullet.w) + transX < cameraR &&
          (bullet.y + bullet.h) + transY > cameraT && (bullet.y  - bullet.h) + transY < cameraB) {
         bullet.render(extraG);
       }
+    }
+    
+    planet.render(extraG);
+    player.render(extraG);
+    
+    for(int i = 0; i < pointers.size(); i++) {
+      Pointer pointer = pointers.get(i);
+      pointer.render(extraG);      
     }
     
     extraG.dispose();
@@ -258,5 +281,8 @@ public class Game extends Canvas {
   public void removeMeteor(Meteor meteor) {
     meteors.remove(meteor);
     entities.remove(meteor);
+    
+    pointers.remove(meteor.pointer);
+    entities.remove(meteor.pointer);
   }
 }

@@ -1,14 +1,14 @@
 package com.heychinaski.ld23;
 
+import static java.lang.Math.abs;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Bullet extends Entity {
-  private static final int BULLET_LIFETIME = 2000;
-
   float xMomentum, yMomentum;
   
-  long start = System.currentTimeMillis();
+  float startX, startY;
   
   public Bullet(float x, float y, float xMomentum, float yMomentum) {
     super();
@@ -16,6 +16,9 @@ public class Bullet extends Entity {
     this.y = y;
     this.xMomentum = xMomentum;
     this.yMomentum = yMomentum;
+    
+    startX = x;
+    startY = y;
     
     this.w = 10;
     this.h = 10;
@@ -26,7 +29,7 @@ public class Bullet extends Entity {
     nextX = x + (xMomentum * tick);
     nextY = y + (yMomentum * tick);
     
-    if(System.currentTimeMillis() - start > BULLET_LIFETIME) {
+    if(abs(nextX) - abs(startX) > (Game.SCREEN_WIDTH / 2) - 20 || abs(nextY) - abs(startY) > (Game.SCREEN_HEIGHT / 2)  - 20) {
       game.removeBullet(this);
     }
  }
