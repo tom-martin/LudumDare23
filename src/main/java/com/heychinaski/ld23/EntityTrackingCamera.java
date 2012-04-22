@@ -12,7 +12,7 @@ public class EntityTrackingCamera extends Camera {
   }
 
   @Override
-  public void update(float tick, Input input) {
+  public void update(float tick, Game game) {
     this.x = toTrack.x;
     this.y = toTrack.y;
   }
@@ -21,7 +21,7 @@ public class EntityTrackingCamera extends Camera {
   public void render(Graphics2D g) {}
 
   @Override
-  public void collided(Entity with, float tick) {
+  public void collided(Entity with, float tick, Game game) {
   }
 
 }

@@ -20,7 +20,7 @@ public class Game extends Canvas {
   
   private BackgroundTile bgTile;
   
-  private Input input = new Input();
+  Input input = new Input();
   private ImageManager imageManager;
   
   public final static int SCREEN_WIDTH = 800;
@@ -30,15 +30,17 @@ public class Game extends Canvas {
 
   private CollisionManager collisionManager;
   
-  int worldSize = 2048;
+  int worldSize = 4096;
 
   private EntityTrackingCamera camera;
 
   private List<Rock> rocks;
+  
+  private List<Meteor> meteors;
+  
+  private List<Bullet> bullets;
 
   private Planet planet;
-
-  private int freeRockCount;
   
   public Game() {
     setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -103,6 +105,8 @@ public class Game extends Canvas {
     entities.add(player);
     
     rocks = new ArrayList<Rock>();
+    meteors = new ArrayList<Meteor>();
+    bullets = new ArrayList<Bullet>();
     
     planet = new Planet(this);
     Rock seedRock = new Rock();
@@ -114,13 +118,15 @@ public class Game extends Canvas {
     seedRock.nextX = 100;
     seedRock.nextY = 100;
     entities.add(seedRock);
-    freeRockCount = 1;
     planet.addRock(seedRock);
     
-    for(int i = 1; i < 200; i++) {
-      addNewRock();
-    }
+//    for(int i = 1; i < 200; i++) {
+//      addNewRock();
+//    }
     
+    for(int i = 1; i < 10; i++) {
+      addNewMeteor();
+    }
     
     long last = System.currentTimeMillis();
     while (true) {
@@ -131,16 +137,16 @@ public class Game extends Canvas {
       
       if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
       
-      if(freeRockCount < 200) addNewRock();
+//      if(freeRockCount < 200) addNewRock();
       
       for(int i = 0; i < entities.size(); i++) {
-        entities.get(i).update(tick, input);
+        entities.get(i).update(tick, this);
       }
       collisionManager.update(tick);
       for(int i = 0; i < entities.size(); i++) {
         entities.get(i).applyNext();
       }
-      camera.update(tick, input);
+      camera.update(tick, this);
       Point mousePosition = getMousePosition();
       if(mousePosition != null) input.update(camera, mousePosition.x, mousePosition.y);
       
@@ -190,13 +196,19 @@ public class Game extends Canvas {
     }    
   }
   
-  public void addNewRock() {
-    Rock rock = new Rock();
-    rock.x = Util.randomInt(worldSize * 2) - worldSize;
-    rock.y = Util.randomInt(worldSize * 2) - worldSize;
+  void addNewMeteor() {
+    Meteor meteor = new Meteor();
+    meteor.x = Util.randomInt(worldSize * 2) - worldSize;
+    meteor.y = Util.randomInt(worldSize * 2) - worldSize;
+    meteor.nextX = meteor.x;
+    meteor.nextY = meteor.y;
+    entities.add(meteor);
+    meteors.add(meteor);
+  }
+
+  public void addRock(Rock rock) {
     entities.add(rock);
     rocks.add(rock);
-    freeRockCount ++;
   }
 
   private void renderWithTrans(Graphics2D g, Player player,
@@ -210,6 +222,14 @@ public class Game extends Canvas {
     float cameraT = camera.y - (SCREEN_WIDTH / 2);
     float cameraB= camera.y + (SCREEN_WIDTH / 2);
     
+    for(int i = 0; i < meteors.size(); i++) {
+      Meteor meteor = meteors.get(i);
+      if((meteor.x + meteor.w) + transX > cameraL && (meteor.x - meteor.w) + transX < cameraR &&
+         (meteor.y + meteor.h) + transY > cameraT && (meteor.y  - meteor.h) + transY < cameraB) {
+        meteor.render(extraG);
+      }
+    }
+    
     for(int i = 0; i < rocks.size(); i++) {
       Rock rock = rocks.get(i);
       if((rock.x + rock.w) + transX > cameraL && (rock.x - rock.w) + transX < cameraR &&
@@ -217,12 +237,34 @@ public class Game extends Canvas {
         rock.render(extraG);
       }
     }
+    
+    
     planet.render(extraG);
     player.render(extraG);
+    
+    for(int i = 0; i < bullets.size(); i++) {
+      Bullet bullet = bullets.get(i);
+      if((bullet.x + bullet.w) + transX > cameraL && (bullet.x - bullet.w) + transX < cameraR &&
+         (bullet.y + bullet.h) + transY > cameraT && (bullet.y  - bullet.h) + transY < cameraB) {
+        bullet.render(extraG);
+      }
+    }
+    
     extraG.dispose();
   }
 
-  public void decrementFreeRockCount() {
-    freeRockCount --;
+  public void addBullet(Bullet bullet) {
+    bullets.add(bullet);
+    entities.add(bullet);
+  }
+  
+  public void removeBullet(Bullet bullet) {
+    bullets.remove(bullet);
+    entities.remove(bullet);
+  }
+
+  public void removeMeteor(Meteor meteor) {
+    meteors.remove(meteor);
+    entities.remove(meteor);
   }
 }

@@ -17,7 +17,6 @@ public class Planet {
   public void addRock(Rock rock) {
     rocks.add(rock);
     rock.setPlanet(this);
-    game.decrementFreeRockCount();
   }
   
   public void render(Graphics2D g) {

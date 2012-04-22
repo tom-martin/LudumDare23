@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.Transparency;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Point2D;
 
 
 public class Player extends Entity {
@@ -29,9 +30,14 @@ public class Player extends Entity {
   int aimX, aimY;
   private long lastHeld;
   
+  private long lastFire = 0;
+  
   static final float MAX_MOMENTUM = 1000;
   static final float ACC = 1000;
   static final float DAMP = 200;
+  static final float THROW_SPEED = 200;
+  static final float BULLET_SPEED = 1200;
+  static final float FIRE_PAUSE = 500;
 
   public Player(Image flyingImage, Image armImage, GraphicsConfiguration gc) {
     w = flyingImage.getWidth(null);
@@ -61,15 +67,15 @@ public class Player extends Entity {
   }
   
   @Override
-  public void update(float tick, Input input) {
-    if(input.isKeyDown(KeyEvent.VK_W)) yMomentum = Math.max(-MAX_MOMENTUM, yMomentum - (tick * ACC));
-    else if(input.isKeyDown(KeyEvent.VK_S)) yMomentum = Math.min(MAX_MOMENTUM, yMomentum + (tick * ACC));
+  public void update(float tick, Game game) {
+    if(game.input.isKeyDown(KeyEvent.VK_W)) yMomentum = Math.max(-MAX_MOMENTUM, yMomentum - (tick * ACC));
+    else if(game.input.isKeyDown(KeyEvent.VK_S)) yMomentum = Math.min(MAX_MOMENTUM, yMomentum + (tick * ACC));
     else if(yMomentum > 0) yMomentum = Math.max(0, yMomentum - (tick * DAMP));
     else if(yMomentum < 0) yMomentum = Math.min(0, yMomentum + (tick * DAMP));
     
-    if(input.isKeyDown(KeyEvent.VK_A)) {
+    if(game.input.isKeyDown(KeyEvent.VK_A)) {
       xMomentum = Math.max(-MAX_MOMENTUM, xMomentum - (tick * ACC));
-    } else if(input.isKeyDown(KeyEvent.VK_D)) {
+    } else if(game.input.isKeyDown(KeyEvent.VK_D)) {
       xMomentum = Math.min(MAX_MOMENTUM, xMomentum + (tick * ACC));
     } else if(xMomentum > 0) xMomentum = Math.max(0, xMomentum - (tick * DAMP));
     else if(xMomentum < 0) xMomentum = Math.min(0, xMomentum + (tick * DAMP));
@@ -77,27 +83,47 @@ public class Player extends Entity {
     nextX = x + (xMomentum * tick);
     nextY = y + (yMomentum * tick);
       
-    aimX = input.getWorldMouseX();
-    aimY = input.getWorldMouseY();
+    aimX = game.input.getWorldMouseX();
+    aimY = game.input.getWorldMouseY();
     
     xDir = x > aimX ? -1 : 1;
     
-    if(heldRock != null && input.isMouseDown(MouseEvent.BUTTON1)) {
+    if(game.input.isMouseDown(MouseEvent.BUTTON1))
+    if(heldRock != null) {
       heldRock.setHeld(false);
-      heldRock.xMomentum = xMomentum + (input.getWorldMouseX() - x);
-      heldRock.yMomentum = yMomentum + (input.getWorldMouseY() - y);
+      Point2D.Float v = new Point2D.Float(game.input.getWorldMouseX() - x, game.input.getWorldMouseY() - y);
+      Util.normalise(v);
+      
+      heldRock.xMomentum = xMomentum + (v.x * THROW_SPEED);
+      heldRock.yMomentum = yMomentum + (v.y * THROW_SPEED);
+      
+      
       heldRock = null;
       
+      lastFire = System.currentTimeMillis();
       lastHeld = System.currentTimeMillis();
+    } else if(System.currentTimeMillis() - lastFire > FIRE_PAUSE){
+      Point2D.Float v = new Point2D.Float(game.input.getWorldMouseX() - x, game.input.getWorldMouseY() - y);
+      Util.normalise(v);
+      
+      Bullet bullet = new Bullet(x + (v.x * 3), y + (v.y * 3), xMomentum + (v.x * BULLET_SPEED), yMomentum + (v.y * BULLET_SPEED));
+      
+      game.addBullet(bullet);
+      lastFire = System.currentTimeMillis();
     }
   }
   
   @Override
-  public void collided(Entity entity, float tick) {
-    if(heldRock == null && entity instanceof Rock && (System.currentTimeMillis() - lastHeld) > 2000) {
-      if(((Rock)entity).setHeld(true)) {
-        heldRock = (Rock)entity;
+  public void collided(Entity with, float tick, Game game) {
+    if(heldRock == null && with instanceof Rock && (System.currentTimeMillis() - lastHeld) > 2000) {
+      if(((Rock)with).setHeld(true)) {
+        heldRock = (Rock)with;
       }
+    }
+    
+    if(with instanceof Meteor) {
+      xMomentum = -xMomentum + ((Meteor)with).xMomentum;
+      yMomentum = -yMomentum + ((Meteor)with).yMomentum;
     }
   }
   

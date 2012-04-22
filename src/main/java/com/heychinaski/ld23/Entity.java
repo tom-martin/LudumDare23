@@ -12,11 +12,11 @@ public abstract class Entity {
   public float nextX = x;
   public float nextY = y;
   
-  public abstract void update(float tick, Input input);
+  public abstract void update(float tick, Game game);
   
   public abstract void render(Graphics2D g);
   
-  public abstract void collided(Entity with, float tick);
+  public abstract void collided(Entity with, float tick, Game game);
 
   public void applyNext() {
     x = nextX;

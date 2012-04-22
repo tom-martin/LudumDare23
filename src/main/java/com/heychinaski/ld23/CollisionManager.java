@@ -47,8 +47,8 @@ public class CollisionManager {
           boundsB.height = b.h;
           
           if(boundsA.intersects(boundsB)) {
-            a.collided(b, tick);
-            b.collided(a, tick);
+            a.collided(b, tick, game);
+            b.collided(a, tick, game);
           }
         }
       }
