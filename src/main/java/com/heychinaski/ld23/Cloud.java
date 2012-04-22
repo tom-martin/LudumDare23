@@ -32,6 +32,8 @@ public class Cloud extends Entity {
   float rainYPositions[] = new float[10];
   
   boolean raining = false;
+  
+  Rock nearestRock = null;
 
   public Cloud(Planet planet) {
     super();
@@ -63,10 +65,17 @@ public class Cloud extends Entity {
       raining = !raining;
     }
     
-    x = planet.x;
-    y = planet.y;
-    w = planet.radius * 2;
-    h = planet.radius * 2;
+//    if(raining && randomInt(500) == 0) {
+      nextX = (float) ((-(planet.radius + 200)) * Math.cos(rot)) + planet.x;
+      nextY = (float) ((-(planet.radius + 200)) * Math.sin(rot)) + planet.y;
+      nearestRock = planet.getNearestRock(nextX, nextY);
+      if(nearestRock != null && nearestRock.grass.size() < 10) {
+        nearestRock.addGrassBlob(new GrassBlob(nearestRock, game.imageManager.get("grass1.png")));
+      }
+//    }
+    
+    w = 200;
+    h = 200;
     
     for(int i = 0; i < xPositions.length; i++) {
       xPositions[i] += randomFloat(tick * JIGGLE_SPEED) - (tick * (JIGGLE_SPEED / 2));
@@ -74,7 +83,7 @@ public class Cloud extends Entity {
     }
     
     for(int i = 0; i < rainXPositions.length; i++) {
-      rainXPositions[i] = (rainXPositions[i] + (tick * RAIN_SPEED)) % 170;
+      rainXPositions[i] = (rainXPositions[i] + (tick * RAIN_SPEED)) % (170 + planet.radius);
       rainYPositions[i] += randomFloat(tick * JIGGLE_SPEED) - (tick * (JIGGLE_SPEED / 2));
     }
   }
@@ -82,6 +91,7 @@ public class Cloud extends Entity {
   @Override
   public void render(Graphics2D g) {
     g = (Graphics2D) g.create();
+//    Graphics2D debugG = (Graphics2D) g.create(); 
     g.translate(planet.x, planet.y);
     g.rotate(rot);
     g.translate(-(planet.radius + 200), 0);
@@ -115,6 +125,14 @@ public class Cloud extends Entity {
     }
     
     g.dispose();
+
+//    debugG.setColor(Color.GREEN);
+//    debugG.fillOval((int)x - 5, (int)y - 5, 10, 10);
+//    if(nearestRock != null) {
+//      debugG.drawLine((int)x, (int)y, (int)nearestRock.x, (int)nearestRock.y);
+//    }
+//    
+//    debugG.dispose();
   }
 
   @Override

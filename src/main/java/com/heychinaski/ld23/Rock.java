@@ -2,8 +2,12 @@ package com.heychinaski.ld23;
 
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Rock extends SpaceJunk {
+  
+  List<GrassBlob> grass = new ArrayList<GrassBlob>();
   
   boolean held = false;
   
@@ -50,6 +54,7 @@ public class Rock extends SpaceJunk {
     
     if(entity instanceof Rock && ((Rock)entity).planet != null && System.currentTimeMillis() - brokenOffTime > 1000) {
       ((Rock)entity).planet.addRock(this);
+      ((Rock)entity).grass.clear();
       return;
     }
     
@@ -81,6 +86,10 @@ public class Rock extends SpaceJunk {
   public void setPlanet(Planet planet) {
     this.planet = planet;
     held = false;
+  }
+
+  public void addGrassBlob(GrassBlob grassBlob) {
+    grass.add(grassBlob);
   }
 
 }

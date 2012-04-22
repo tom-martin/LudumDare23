@@ -109,6 +109,20 @@
          stdDeviation="0.74375971"
          id="feGaussianBlur4455-0" />
     </filter>
+    <inkscape:perspective
+       id="perspective3844"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3844-7"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -118,8 +132,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="2765.0682"
-     inkscape:cy="51.672841"
+     inkscape:cx="2411.8961"
+     inkscape:cy="-500.71732"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1633,5 +1647,139 @@
        id="path4447-7"
        d="m 2954.53,819.22804 c -0.7068,4.83587 -3.7021,8.69394 -6.5497,8.69394 -2.7122,0 -14.1946,4.44605 -15.0183,-0.0392 -0.4734,3.36304 11.5955,8.8284 11.5955,12.8737 0,13.53643 -3.6282,18.4923 0.064,18.4923 3.692,0 8.039,-3.75207 8.039,-17.28849 l 1.2038,-6.51816 c 0,-4.30285 1.4999,-5.32928 0.9669,-8.8408 L 2954.53,819.228 z"
        style="fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter4453-1)" />
+    <path
+       transform="translate(92.428956,546.49253)"
+       d="m 2342.3539,910.39056 c -3.7391,2.55469 -39.5125,-26.02029 -43.6648,-24.36533 -4.1523,1.65496 0.547,31.26847 -3.7774,31.83521 -4.3245,0.56674 -28.4624,-14.08623 -32.6849,-13.30941 -4.2226,0.77683 -10.973,42.49201 -15.0427,40.94129 -4.0696,-1.55072 -9.9728,-62.73298 -13.7626,-64.3222 -3.7897,-1.58923 -37.2028,26.69553 -40.8184,24.22138 -3.6156,-2.47414 6.9795,-28.89855 4.1766,-31.84156 -2.8029,-2.94301 -23.3956,9.56897 -25.5249,5.52632 -2.1294,-4.04264 25.3102,-37.5361 24.3369,-41.54204 -0.9732,-4.00595 -66.2145,-14.40344 -65.8428,-18.67073 0.3717,-4.26728 62.6734,-12.17901 64.327,-16.39594 1.6535,-4.21693 -45.7308,-16.70661 -44.5144,-21.0222 1.2163,-4.31559 53.2047,1.18548 55.3336,-2.48741 2.1289,-3.67289 -20.5574,-52.73993 -18.0568,-56.00503 2.5006,-3.2651 39.8343,23.34158 43.6643,20.99425 3.83,-2.34734 -0.4846,-28.08067 3.7779,-28.46414 4.2625,-0.38347 28.1451,17.2602 32.6854,16.68049 4.5403,-0.57971 10.965,-45.63416 15.0421,-44.31237 4.0771,1.32179 -2.4116,56.98219 1.697,58.56188 4.1085,1.57969 49.4239,-24.83474 52.8836,-21.83214 3.4597,3.0026 -7.3147,31.88124 -4.1761,35.21264 3.1385,3.3314 24.8732,1.5229 27.1657,5.15515 2.2926,3.63226 -9.0777,20.96847 -7.5979,25.10025 1.4799,4.13178 18.7574,3.77914 18.6587,8.03803 -0.099,4.25889 -34.0613,28.03839 -35.4918,32.04802 -1.4306,4.00963 46.9797,45.11983 44.483,48.83764 -2.4967,3.71781 -52.8734,-10.05805 -55.8036,-6.51911 -2.9303,3.53893 22.2664,35.38236 18.5273,37.93706 z"
+       inkscape:randomized="0.127"
+       inkscape:rounded="0.1"
+       inkscape:flatsided="false"
+       sodipodi:arg2="1.0753948"
+       sodipodi:arg1="0.85099541"
+       sodipodi:r2="82.706497"
+       sodipodi:r1="119.86449"
+       sodipodi:cy="816.99664"
+       sodipodi:cx="2263.752"
+       sodipodi:sides="14"
+       id="path3808"
+       style="fill:#55d400;fill-opacity:1;stroke:#3d9900;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:type="star"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\grass2.png"
+       inkscape:export-xdpi="19.459999"
+       inkscape:export-ydpi="19.459999" />
+    <path
+       sodipodi:nodetypes="ccc"
+       id="path3810"
+       d="m 2391.0311,1369.55 c 10.1015,22.2234 27.2741,26.7691 27.2741,26.7691 l -59.599,13.637"
+       style="fill:none;stroke:#3d9900;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\grass2.png"
+       inkscape:export-xdpi="19.459999"
+       inkscape:export-ydpi="19.459999" />
+    <path
+       sodipodi:nodetypes="ccc"
+       style="fill:none;stroke:#3d9900;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 2328.4315,1321.6778 c 19.6492,-14.4854 12.244,-29.9546 12.244,-29.9546 l 26.5759,37.7404"
+       id="path3814"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\grass2.png"
+       inkscape:export-xdpi="19.459999"
+       inkscape:export-ydpi="19.459999" />
+    <path
+       sodipodi:type="star"
+       style="fill:#55d400;fill-opacity:1;stroke:#3d9900;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3816"
+       sodipodi:sides="14"
+       sodipodi:cx="2263.752"
+       sodipodi:cy="816.99664"
+       sodipodi:r1="119.86449"
+       sodipodi:r2="81.507851"
+       sodipodi:arg1="0.85099541"
+       sodipodi:arg2="1.0753948"
+       inkscape:flatsided="false"
+       inkscape:rounded="0.12"
+       inkscape:randomized="0.124"
+       d="m 2342.3637,910.31347 c -4.5718,3.14273 -38.466,-20.53817 -43.4475,-18.21134 -4.9815,2.32683 1.3174,25.39128 -3.9826,26.10381 -5.3,0.71252 -21.264,-12.02971 -26.2676,-11.92287 -5.0036,0.10684 -16.5928,40.84022 -21.5913,38.96073 -4.9985,-1.8795 1.8564,-52.77365 -3.1077,-55.19036 -4.9641,-2.41672 -46.9127,18.57965 -51.3436,15.54355 -4.4308,-3.03611 12.8377,-44.81909 9.0834,-48.28925 -3.7543,-3.47016 -28.1488,26.59902 -30.7581,21.6481 -2.6093,-4.95091 16.9728,-29.17333 15.419,-34.18068 -1.5538,-5.00735 -56.7212,-20.58791 -56.2818,-25.82386 0.4395,-5.23596 51.897,-6.47594 53.3446,-11.61869 1.4476,-5.14275 -35.2835,-20.87217 -33.7771,-26.15581 1.5063,-5.28363 57.9407,1.37015 61.2298,-2.42049 3.2891,-3.79063 -27.1837,-51.71616 -24.0946,-55.71097 3.089,-3.9948 39.324,21.21165 43.4475,18.21135 4.1235,-3.00031 -1.2442,-25.61102 3.9826,-26.10382 5.2268,-0.49279 22.7106,23.01351 27.8696,22.35203 5.159,-0.66148 14.9829,-50.99522 19.9892,-49.38988 5.0064,1.60533 -0.08,36.24886 4.7103,39.18457 4.7905,2.93572 45.4956,-6.49786 49.7406,-2.82921 4.245,3.66864 -11.8276,43.85987 -9.0834,48.28924 2.7441,4.42937 29.5557,-12.38726 32.3606,-7.92749 2.805,4.45976 -17.6125,32.716 -15.4185,37.47213 2.1941,4.75613 26.6679,-9.12765 26.5554,-3.90253 -0.1125,5.22512 -25.1891,22.36953 -25.2207,27.62447 -0.032,5.25495 36.8156,48.02135 33.7766,52.59075 -3.039,4.56941 -59.1879,-10.69296 -61.7188,-5.64984 -2.531,5.04312 29.1559,34.20363 24.5841,37.34636 z"
+       transform="translate(82.327434,866.71088)"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\grass3.png"
+       inkscape:export-xdpi="19.459999"
+       inkscape:export-ydpi="19.459999" />
+    <path
+       style="fill:none;stroke:#3d9900;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 2377.4953,1678.3616 c -31.0276,7.3914 -10.1693,52.8581 -10.1693,52.8581 l -23.868,-29.4795"
+       id="path3818"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\grass3.png"
+       inkscape:export-xdpi="19.459999"
+       inkscape:export-ydpi="19.459999" />
+    <path
+       id="path3820"
+       d="m 2374.3223,1667.1501 c -28.7405,3.6973 -41.5384,-37.0257 -41.5384,-37.0257 l -26.5759,37.7404"
+       style="fill:none;stroke:#3d9900;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\grass3.png"
+       inkscape:export-xdpi="19.459999"
+       inkscape:export-ydpi="19.459999" />
+    <path
+       sodipodi:type="star"
+       style="fill:#55d400;fill-opacity:1;stroke:#3d9900;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3014"
+       sodipodi:sides="14"
+       sodipodi:cx="2263.752"
+       sodipodi:cy="816.99664"
+       sodipodi:r1="119.86449"
+       sodipodi:r2="80.339287"
+       sodipodi:arg1="0.85099541"
+       sodipodi:arg2="1.0753948"
+       inkscape:flatsided="false"
+       inkscape:rounded="0.1"
+       inkscape:randomized="0.123"
+       d="m 2342.367,910.28777 c -3.8867,2.67721 -38.7655,-17.79203 -42.8025,-16.18262 -4.037,1.6094 -0.1143,23.60464 -4.6236,24.21595 -4.5094,0.61132 -15.3898,-18.0389 -20.0055,-17.18718 -4.6157,0.85171 -23.6413,45.62017 -27.8971,44.02704 -4.2559,-1.59313 -7.315,-52.7065 -11.6999,-53.65756 -4.3848,-0.95107 -38.9384,16.74634 -42.7082,14.16208 -3.7697,-2.58426 20.1047,-44.07941 16.845,-47.43423 -3.2597,-3.35482 -36.4086,24.89574 -38.6285,20.68445 -2.22,-4.21128 15.6206,-45.64199 14.7227,-49.84596 -0.898,-4.20398 -55.7404,-5.63263 -55.3711,-10.08918 0.3693,-4.45654 65.0829,-12.6021 65.926,-17.07528 0.8432,-4.47318 -47.7264,-16.32415 -46.4403,-20.81799 1.2861,-4.49385 54.5302,-18.21432 56.9745,-22.04801 2.4442,-3.83368 -22.5217,-32.56624 -19.8865,-35.96312 2.6352,-3.39689 39.1869,19.14267 42.8025,16.18262 3.6156,-2.96005 0.1758,-23.7902 4.6236,-24.21595 4.4478,-0.42576 15.0305,34.44135 19.5498,34.68609 4.5193,0.24473 24.0906,-62.88763 28.3528,-61.52595 4.2622,1.36169 7.7585,51.42066 11.6998,53.65756 3.9414,2.23691 39.0947,-20.54513 42.7078,-17.42699 3.6131,3.11814 -19.7818,47.50272 -16.8445,50.69914 2.9372,3.19642 37.8326,-14.13615 40.2177,-10.3394 2.385,3.79675 -15.3429,19.0449 -14.7223,23.62421 0.6206,4.57931 25.9777,5.64198 25.8844,10.08917 -0.093,4.44718 -37.6066,28.50525 -38.029,32.95199 -0.4223,4.44674 49.0196,43.14838 46.4399,47.03975 -2.5797,3.89137 -53.0628,-8.93202 -55.8704,-5.09886 -2.8076,3.83317 22.6696,34.21102 18.7829,36.88823 z"
+       transform="translate(149.50258,200.0102)" />
+    <path
+       style="fill:none;stroke:#3d9900;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 2389.0107,1000.8444 c -10.1015,22.2234 -27.2741,26.7691 -27.2741,26.7691 l 59.599,13.637"
+       id="path3788"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="path3790"
+       d="m 2433.4575,1034.6845 c 10.1015,22.2234 26.769,18.1828 26.769,18.1828 l -42.4264,18.1827"
+       style="fill:none;stroke:#3d9900;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       sodipodi:nodetypes="ccc" />
+    <path
+       sodipodi:nodetypes="ccc"
+       id="path3792"
+       d="m 2443.5589,1003.3698 c -15.6574,-25.25385 8.5863,-43.94168 8.5863,-43.94168 l -40.9112,3.53555"
+       style="fill:none;stroke:#3d9900;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       style="fill:none;stroke:#3d9900;stroke-width:5.70052624;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3822"
+       width="290.22342"
+       height="290.22342"
+       x="2264.2036"
+       y="870.86469"
+       rx="47.884418"
+       ry="0" />
+    <rect
+       style="fill:none;stroke:#3d9900;stroke-width:5.70052624;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3822-1"
+       width="290.22342"
+       height="290.22342"
+       x="2205.5132"
+       y="1220.3977"
+       rx="47.884418"
+       ry="0"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\grass2.png"
+       inkscape:export-xdpi="19.459999"
+       inkscape:export-ydpi="19.459999" />
+    <rect
+       style="fill:none;stroke:#3d9900;stroke-width:5.70052624000000030;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;opacity:0"
+       id="rect3822-4"
+       width="290.22342"
+       height="290.22342"
+       x="2197.4319"
+       y="1536.5756"
+       rx="47.884418"
+       ry="0"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\grass3.png"
+       inkscape:export-xdpi="19.459999"
+       inkscape:export-ydpi="19.459999" />
   </g>
 </svg>

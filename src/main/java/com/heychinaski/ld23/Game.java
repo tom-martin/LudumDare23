@@ -20,13 +20,13 @@ public class Game extends Canvas {
   private BackgroundTile bgTile;
   
   Input input = new Input();
-  private ImageManager imageManager;
+  ImageManager imageManager;
   
   List<Entity> entities;
 
   private CollisionManager collisionManager;
   
-  int worldSize = 4096;
+  int worldSize = 2048;
 
   EntityTrackingCamera camera;
 
@@ -99,7 +99,7 @@ public class Game extends Canvas {
     entities = new ArrayList<Entity>();
     collisionManager = new CollisionManager(this);
     
-    imageManager = new ImageManager(this, "man_flying.png", "man_arm.png");
+    imageManager = new ImageManager(this, "man_flying.png", "man_arm.png", "grass1.png", "grass2.png", "grass3.png");
     
     Graphics2D g = (Graphics2D)strategy.getDrawGraphics();
     player = new Player(imageManager.get("man_flying.png"), imageManager.get("man_arm.png"), g.getDeviceConfiguration());
@@ -142,7 +142,7 @@ public class Game extends Canvas {
       
       if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
       
-      if(Util.randomInt(2000) == 0) {
+      if(Util.randomInt(2) == 0 && iceblocks.size() < 3) {
         addNewIceBlock();
       }
       

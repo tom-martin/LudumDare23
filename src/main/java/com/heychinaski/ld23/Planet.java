@@ -57,5 +57,32 @@ public class Planet {
       rock.fill(g);
       g.translate(-rock.x, -rock.y);
     }
+    
+    for(int i = 0; i < rocks.size(); i ++) {
+      Rock rock = rocks.get(i);
+      g.translate(rock.x, rock.y);
+      for(int j = 0; j < rock.grass.size(); j++) {
+        rock.grass.get(j).render(g);
+      }
+      g.translate(-rock.x, -rock.y);
+    }
+  }
+
+  public Rock getNearestRock(float x2, float y2) {
+    float minDistanceSq = -1f;
+    Rock nearestRock = rocks.get(0);
+    for(int i = 0; i < rocks.size(); i ++) {
+      Rock rock = rocks.get(i);
+      float xDiff = rock.x - x2;
+      float yDiff = rock.y - y2;
+      float dist = (xDiff * xDiff) + (yDiff * yDiff);
+      
+      if(dist < minDistanceSq || minDistanceSq == -1) {
+        nearestRock = rock;
+        minDistanceSq = dist;
+      }
+    }
+    
+    return nearestRock;
   }
 }
