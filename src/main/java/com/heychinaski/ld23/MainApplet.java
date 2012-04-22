@@ -25,6 +25,7 @@ public class MainApplet extends Applet {
     panel.add(game);
     add(panel);
     
+    game.requestFocus();
     new Thread() {
       public void run() {
         game.start();

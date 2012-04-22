@@ -1,5 +1,7 @@
 package com.heychinaski.ld23;
 
+import static java.lang.Math.sqrt;
+
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -20,6 +22,7 @@ public class Pointer extends Entity {
   boolean visible = false;
   
   BasicStroke basicStroke = new BasicStroke(5, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
+  private float prox;
   
   public Pointer(Player player, Entity tracking, int distance) {
     this.player = player;
@@ -42,6 +45,8 @@ public class Pointer extends Entity {
     this.nextY = player.y + 100;
     this.rot = (float) Math.atan2((player.y-tracking.y),(player.x-tracking.x));
     
+    this.prox = (float) sqrt(((player.x - tracking.x) * (player.x - tracking.x)) + ((player.y - tracking.y) * (player.y - tracking.y)));  
+    
     visible = tracking.x < (game.camera.x - Game.SCREEN_WIDTH / 2) ||
               tracking.x > (game.camera.x + Game.SCREEN_WIDTH / 2) ||
               tracking.y < (game.camera.y - Game.SCREEN_HEIGHT / 2) ||
@@ -56,6 +61,8 @@ public class Pointer extends Entity {
     g.translate(player.x, player.y);
     g.rotate(rot);
     g.translate(-distance, 0);
+    float proxScale = 5 / (prox / 200);
+    g.scale(proxScale, proxScale);
     
     g.setStroke(basicStroke);
     

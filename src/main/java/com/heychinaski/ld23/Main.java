@@ -29,6 +29,7 @@ public class Main {
         game.start();
       }
     }.start();
+    game.requestFocus();
     mainWindow.setVisible(true);
   }
 
