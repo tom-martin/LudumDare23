@@ -65,14 +65,14 @@ public class Cloud extends Entity {
       raining = !raining;
     }
     
-//    if(raining && randomInt(500) == 0) {
+    if(raining && randomInt(10) == 0) {
       nextX = (float) ((-(planet.radius + 200)) * Math.cos(rot)) + planet.x;
       nextY = (float) ((-(planet.radius + 200)) * Math.sin(rot)) + planet.y;
       nearestRock = planet.getNearestRock(nextX, nextY);
       if(nearestRock != null && nearestRock.grass.size() < 10) {
         nearestRock.addGrassBlob(new GrassBlob(nearestRock, game.imageManager.get("grass1.png")));
       }
-//    }
+    }
     
     w = 200;
     h = 200;

@@ -26,7 +26,7 @@ public class Game extends Canvas {
 
   private CollisionManager collisionManager;
   
-  int worldSize = 2048;
+  int worldSize = 8192;
 
   EntityTrackingCamera camera;
 
@@ -142,7 +142,7 @@ public class Game extends Canvas {
       
       if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
       
-      if(Util.randomInt(2) == 0 && iceblocks.size() < 3) {
+      if(Util.randomInt(1000) == 0 && iceblocks.size() < 3 && planet.isFinished()) {
         addNewIceBlock();
       }
       

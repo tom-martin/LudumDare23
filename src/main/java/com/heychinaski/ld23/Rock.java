@@ -39,7 +39,7 @@ public class Rock extends SpaceJunk {
   @Override
   public void collided(Entity entity, float tick, Game game) {
     if(entity instanceof Cloud) return;
-    if(entity instanceof Meteor && planet != null) {
+    if(entity instanceof Meteor && planet != null && !planet.isFinished()) {
       planet.removeRock(this);
       this.xMomentum = ((Meteor)entity).xMomentum;
       this.yMomentum = ((Meteor)entity).yMomentum;
@@ -52,7 +52,10 @@ public class Rock extends SpaceJunk {
     if(planet != null || held) return;
     if(entity instanceof Player) return;
     
-    if(entity instanceof Rock && ((Rock)entity).planet != null && System.currentTimeMillis() - brokenOffTime > 1000) {
+    if( entity instanceof Rock && 
+        ((Rock)entity).planet != null &&
+        !((Rock)entity).planet.maxSizeReached() &&
+        System.currentTimeMillis() - brokenOffTime > 1000) {
       ((Rock)entity).planet.addRock(this);
       ((Rock)entity).grass.clear();
       return;

@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Planet {
+  
+  static final int FINISHED_SIZE = 20;
+  static final int MAX_SIZE = 100;
 
   Game game;
   public Planet(Game game) {
@@ -84,5 +87,13 @@ public class Planet {
     }
     
     return nearestRock;
+  }
+
+  public boolean isFinished() {
+    return rocks.size() >= FINISHED_SIZE;
+  }
+  
+  public boolean maxSizeReached() {
+    return rocks.size() >= MAX_SIZE;
   }
 }
