@@ -1,7 +1,6 @@
 package com.heychinaski.ld23;
 
 import static com.heychinaski.ld23.Util.randomInt;
-import static java.lang.Math.round;
 
 public class Meteor extends SpaceJunk {
 

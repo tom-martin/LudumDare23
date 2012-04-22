@@ -30,7 +30,7 @@ public class Game extends Canvas {
 
   private CollisionManager collisionManager;
   
-  int worldSize = 4096;
+  int worldSize = 1024;
 
   private EntityTrackingCamera camera;
 
@@ -109,9 +109,7 @@ public class Game extends Canvas {
     bullets = new ArrayList<Bullet>();
     
     planet = new Planet(this);
-    Rock seedRock = new Rock();
-    seedRock.fillColor = new Color(200, 100, 80);
-    seedRock.outlineColor = new Color(120, 100, 80);
+    Rock seedRock = new SeedRock();
     rocks.add(seedRock);
     seedRock.x = 100;
     seedRock.y = 100;
@@ -119,10 +117,6 @@ public class Game extends Canvas {
     seedRock.nextY = 100;
     entities.add(seedRock);
     planet.addRock(seedRock);
-    
-//    for(int i = 1; i < 200; i++) {
-//      addNewRock();
-//    }
     
     for(int i = 1; i < 10; i++) {
       addNewMeteor();
@@ -136,8 +130,6 @@ public class Game extends Canvas {
       last = now;
       
       if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
-      
-//      if(freeRockCount < 200) addNewRock();
       
       for(int i = 0; i < entities.size(); i++) {
         entities.get(i).update(tick, this);

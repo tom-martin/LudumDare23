@@ -19,6 +19,11 @@ public class Planet {
     rock.setPlanet(this);
   }
   
+  public void removeRock(Rock rock) {
+    rocks.remove(rock);
+    rock.setPlanet(null);
+  }
+  
   public void render(Graphics2D g) {
     for(int i = 0; i < rocks.size(); i ++) {
       Rock rock = rocks.get(i);

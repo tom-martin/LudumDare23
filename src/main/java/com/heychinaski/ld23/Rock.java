@@ -8,6 +8,8 @@ public class Rock extends SpaceJunk {
   
   boolean held = false;
   
+  long brokenOffTime = 0;
+  
   public boolean setHeld(boolean held) {
     if(planet != null) {
       held = false;
@@ -33,10 +35,20 @@ public class Rock extends SpaceJunk {
   
   @Override
   public void collided(Entity entity, float tick, Game game) {
+    if(entity instanceof Meteor && planet != null) {
+      planet.removeRock(this);
+      this.xMomentum = ((Meteor)entity).xMomentum;
+      this.yMomentum = ((Meteor)entity).yMomentum;
+      
+      brokenOffTime = System.currentTimeMillis(); 
+      
+      return;
+    }
+    
     if(planet != null || held) return;
     if(entity instanceof Player) return;
     
-    if(entity instanceof Rock && ((Rock)entity).planet != null) {
+    if(entity instanceof Rock && ((Rock)entity).planet != null && System.currentTimeMillis() - brokenOffTime > 1000) {
       ((Rock)entity).planet.addRock(this);
       return;
     }
