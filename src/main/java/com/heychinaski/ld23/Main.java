@@ -15,11 +15,11 @@ public class Main {
     JFrame mainWindow = new JFrame("Working title");
     JPanel panel = (JPanel) mainWindow.getContentPane();
     
-    panel.setPreferredSize(new Dimension(800,600));
+    panel.setPreferredSize(new Dimension(1024, 768));
     panel.setLayout(new BorderLayout());
     
     final Game game = new Game();
-    panel.add(game, BorderLayout.CENTER);
+    panel.add(game);
     
     mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     mainWindow.pack();
@@ -29,6 +29,7 @@ public class Main {
         game.start();
       }
     }.start();
+    
     game.requestFocus();
     mainWindow.setVisible(true);
   }

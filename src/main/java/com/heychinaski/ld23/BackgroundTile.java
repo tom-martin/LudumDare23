@@ -9,7 +9,7 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 
 public class BackgroundTile {
-  private Image image;
+  Image image;
   private int size;
 
   public BackgroundTile(int size, GraphicsConfiguration gc) {

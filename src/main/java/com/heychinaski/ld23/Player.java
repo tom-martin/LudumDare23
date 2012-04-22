@@ -25,7 +25,7 @@ public class Player extends Entity {
   float xMomentum = 0;
   float yMomentum = 0;
   
-  int health = 100;
+  int health = 1;
   
   int xDir = -1;
   

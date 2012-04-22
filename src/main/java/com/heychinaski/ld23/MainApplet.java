@@ -1,9 +1,7 @@
 package com.heychinaski.ld23;
 
 import java.applet.Applet;
-import java.awt.Dimension;
-
-import javax.swing.JPanel;
+import java.awt.BorderLayout;
 
 public class MainApplet extends Applet {
 
@@ -15,20 +13,17 @@ public class MainApplet extends Applet {
   @Override
   public void start() {
     super.start();
-    
-    JPanel panel = new JPanel();
-    
-    panel.setPreferredSize(new Dimension(1024,768));
-    panel.setLayout(null);
-    
+    resize(1024, 768);
+    setLayout(new BorderLayout());
     final Game game = new Game();
-    panel.add(game);
-    add(panel);
+    add(game, BorderLayout.CENTER);
     
     new Thread() {
       public void run() {
         game.start();
       }
     }.start();
+    
+    game.requestFocus();
   }
 }

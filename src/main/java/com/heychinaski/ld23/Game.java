@@ -3,6 +3,7 @@ package com.heychinaski.ld23;
 import static java.lang.Math.round;
 
 import java.awt.Canvas;
+import java.awt.Container;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
@@ -13,8 +14,12 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class Game extends Canvas {
   private static final int METEOR_COUNT = 12;
@@ -62,6 +67,12 @@ public class Game extends Canvas {
 
   private Pointer planetPointer;
 
+  private boolean running = true;
+
+  private boolean showTitle = true;
+
+  private Image title; 
+
   public Game() {
     setIgnoreRepaint(true);
     
@@ -81,7 +92,9 @@ public class Game extends Canvas {
 
       @Override
       public void mouseClicked(MouseEvent arg0) {
-        
+        if(showTitle) {
+          showTitle = false;
+        }
       }
 
       @Override
@@ -108,46 +121,36 @@ public class Game extends Canvas {
   }
   
   public void start() {
-    setSize(1024, 768);
     createBufferStrategy(2);
     BufferStrategy strategy = getBufferStrategy();
     
-    entities = new ArrayList<Entity>();
-    collisionManager = new CollisionManager(this);
-    
-    imageManager = new ImageManager(this, "man_flying.png", "man_arm.png", "grass1.png", "grass2.png", "grass3.png", "heart.png", "alien.png");
-    
-    heartImage = imageManager.get("heart.png");
-    alienImage = imageManager.get("alien.png");
-    
-    Graphics2D g = (Graphics2D)strategy.getDrawGraphics();
-    player = new Player(imageManager.get("man_flying.png"), imageManager.get("man_arm.png"), g.getDeviceConfiguration());
-    camera = new EntityTrackingCamera(player, this);
-    bgTile = new BackgroundTile(1024, g.getDeviceConfiguration());
-    
-    entities.add(player);
-    
-    rocks = new ArrayList<Rock>();
-    meteors = new ArrayList<Meteor>();
-    bullets = new ArrayList<Bullet>();
-    pointers = new ArrayList<Pointer>();
-    iceblocks = new ArrayList<IceBlock>();
-    clouds = new ArrayList<Cloud>();
-    enemies = new ArrayList<Enemy>();
-    planets = new ArrayList<Planet>();
-    
-    createNewPlanet();
+    Graphics2D g;
+    reset();
     
     long last = System.currentTimeMillis();
-    while (true) {
+    while (running ) {
       long now = System.currentTimeMillis();
       float tick = (float)(now - last) / 1000;
       if(Util.randomInt(200) == 0) System.out.println("Fps: " + 1f / tick);
       last = now;
       
-      if(input.isKeyDown(KeyEvent.VK_ESCAPE)) gameOver();
+      if(showTitle) {
+        g = (Graphics2D)strategy.getDrawGraphics();
+        bgTile.render(round(-camera.x), round(-camera.y), g);
+        g.drawImage(title, (getWidth() - title.getWidth(null)) / 2, 10, null);
+        
+        g.dispose();
+        strategy.show();
+        
+        continue;
+      }
       
-      if(player.health <= 0) gameOver();
+      if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
+      
+      if(player.health <= 0) {
+        gameOver();
+        continue;
+      }
       
       
       if(Util.randomInt(1000) == 0 && iceblocks.size() < 3 && currentPlanet.isFinished()) {
@@ -158,9 +161,8 @@ public class Game extends Canvas {
         addNewMeteor();
       }
       
-      if(enemies.size() < ENEMY_COUNT) {
+      if(Util.randomInt(200 + enemies.size()) == 0 && enemies.size() < ENEMY_COUNT) {
         addNewEnemy();
-        System.out.println("Enemies " +enemies.size());
       }
       
       if(currentPlanet.isFinished() && currentPlanet.clouds.size() >= 5) {
@@ -226,6 +228,38 @@ public class Game extends Canvas {
     }    
   }
 
+  private void reset() {
+    BufferStrategy strategy = getBufferStrategy();
+    entities = new ArrayList<Entity>();
+    collisionManager = new CollisionManager(this);
+    
+    this.imageManager = new ImageManager(this, "title.png", "man_flying.png", "man_arm.png", "grass1.png", "grass2.png", "grass3.png", "heart.png", "alien.png");
+    
+    heartImage = imageManager.get("heart.png");
+    alienImage = imageManager.get("alien.png");
+    
+    Graphics2D g = (Graphics2D)strategy.getDrawGraphics();
+    player = new Player(imageManager.get("man_flying.png"), imageManager.get("man_arm.png"), g.getDeviceConfiguration());
+    camera = new EntityTrackingCamera(player, this);
+    bgTile = new BackgroundTile(1024, g.getDeviceConfiguration());
+    title = imageManager.get("title.png");
+    
+    entities.add(player);
+    
+    rocks = new ArrayList<Rock>();
+    meteors = new ArrayList<Meteor>();
+    bullets = new ArrayList<Bullet>();
+    pointers = new ArrayList<Pointer>();
+    iceblocks = new ArrayList<IceBlock>();
+    clouds = new ArrayList<Cloud>();
+    enemies = new ArrayList<Enemy>();
+    planets = new ArrayList<Planet>();
+    
+    planetPointer = null;
+    
+    createNewPlanet();
+  }
+
   private void createNewPlanet() {
     currentPlanet = new Planet(this);
     planets.add(currentPlanet);
@@ -258,7 +292,8 @@ public class Game extends Canvas {
   }
 
   private void gameOver() {
-    System.exit(0);
+    showTitle = true;
+    reset();
   }
 
   private void renderHUD(Graphics2D g) {
