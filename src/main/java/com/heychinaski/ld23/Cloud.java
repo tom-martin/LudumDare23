@@ -63,6 +63,11 @@ public class Cloud extends Entity {
       raining = !raining;
     }
     
+    x = planet.x;
+    y = planet.y;
+    w = planet.radius * 2;
+    h = planet.radius * 2;
+    
     for(int i = 0; i < xPositions.length; i++) {
       xPositions[i] += randomFloat(tick * JIGGLE_SPEED) - (tick * (JIGGLE_SPEED / 2));
       yPositions[i] += randomFloat(tick * JIGGLE_SPEED) - (tick * (JIGGLE_SPEED / 2));

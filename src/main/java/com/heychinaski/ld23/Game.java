@@ -131,11 +131,6 @@ public class Game extends Canvas {
     
     for(int i = 0; i < 5; i++) {
       addNewMeteor();
-      addNewIceBlock();
-      
-      Cloud cloud = new Cloud(planet);
-      planet.addCloud(cloud);
-      addCloud(cloud);
     }
     
     long last = System.currentTimeMillis();
@@ -146,6 +141,10 @@ public class Game extends Canvas {
       last = now;
       
       if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
+      
+      if(Util.randomInt(2000) == 0) {
+        addNewIceBlock();
+      }
       
       for(int i = 0; i < entities.size(); i++) {
         entities.get(i).update(tick, this);

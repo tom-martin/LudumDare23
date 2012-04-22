@@ -34,6 +34,7 @@ public class Rock extends SpaceJunk {
   
   @Override
   public void collided(Entity entity, float tick, Game game) {
+    if(entity instanceof Cloud) return;
     if(entity instanceof Meteor && planet != null) {
       planet.removeRock(this);
       this.xMomentum = ((Meteor)entity).xMomentum;
