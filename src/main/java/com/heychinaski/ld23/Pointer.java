@@ -10,7 +10,7 @@ import java.awt.Graphics2D;
 public class Pointer extends Entity {
 
   private Player player;
-  private Entity tracking;
+  Entity tracking;
   private float rot;
   
   int[] xPositions = new int[3];

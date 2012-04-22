@@ -18,7 +18,7 @@ public class MainApplet extends Applet {
     
     JPanel panel = new JPanel();
     
-    panel.setPreferredSize(new Dimension(800,600));
+    panel.setPreferredSize(new Dimension(1024,768));
     panel.setLayout(null);
     
     final Game game = new Game();

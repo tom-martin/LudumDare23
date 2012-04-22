@@ -19,7 +19,7 @@ public class Planet {
   }
 
   private List<Rock> rocks = new ArrayList<Rock>();
-  private List<Cloud> clouds = new ArrayList<Cloud>();
+  List<Cloud> clouds = new ArrayList<Cloud>();
   float x;
   float y;
   

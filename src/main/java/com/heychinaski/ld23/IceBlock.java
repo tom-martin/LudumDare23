@@ -15,11 +15,14 @@ public class IceBlock extends Rock {
   public void collided(Entity entity, float tick, Game game) {
     if(entity instanceof Rock && ((Rock)entity).planet != null) {
       planet = ((Rock)entity).planet;
-      Cloud cloud = new Cloud(planet);
-      planet.addCloud(cloud);
-      game.addCloud(cloud);
       
-      game.removeIceBlock(this);
+      if(planet.clouds.size() < 5) {
+        Cloud cloud = new Cloud(planet);
+        planet.addCloud(cloud);
+        game.addCloud(cloud);
+        
+        game.removeIceBlock(this);
+      }
     }
   }
 }

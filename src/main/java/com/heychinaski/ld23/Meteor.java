@@ -25,8 +25,6 @@ public class Meteor extends SpaceJunk {
         rock.xMomentum += this.xMomentum;
         rock.yMomentum += this.yMomentum;
       }
-      
-      game.addNewMeteor();
     }
     
     if(with instanceof Meteor) {

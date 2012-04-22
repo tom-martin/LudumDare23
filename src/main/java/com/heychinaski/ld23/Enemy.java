@@ -22,6 +22,8 @@ public class Enemy extends Entity {
     
     w = image.getWidth(null);
     h = image.getHeight(null);
+    
+    strategy = Util.randomInt(1);
   }
 
   @Override

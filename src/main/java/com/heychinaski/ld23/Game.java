@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game extends Canvas {
-  private static final int METEOR_COUNT = 8;
+  private static final int METEOR_COUNT = 12;
 
   private static final long serialVersionUID = 1L;
 
-  private static final int ENEMY_COUNT = 100;
+  private static final int ENEMY_COUNT = 300;
   
   private BackgroundTile bgTile;
   
@@ -50,13 +50,17 @@ public class Game extends Canvas {
   
   private List<Enemy> enemies;
   
-  private Planet planet;
+  private Planet currentPlanet;
+  
+  private List<Planet> planets;
 
   Player player;
   
   private Image heartImage;
 
   private Image alienImage;
+
+  private Pointer planetPointer;
 
   public Game() {
     setIgnoreRepaint(true);
@@ -130,28 +134,9 @@ public class Game extends Canvas {
     iceblocks = new ArrayList<IceBlock>();
     clouds = new ArrayList<Cloud>();
     enemies = new ArrayList<Enemy>();
+    planets = new ArrayList<Planet>();
     
-    planet = new Planet(this);
-    Rock seedRock = new SeedRock();
-    rocks.add(seedRock);
-    seedRock.x = 100;
-    seedRock.y = 100;
-    seedRock.nextX = 100;
-    seedRock.nextY = 100;
-    entities.add(seedRock);
-    planet.addRock(seedRock);
-    
-    Pointer pointer = new Pointer(player, seedRock);
-    pointers.add(pointer);
-    entities.add(pointer);
-    
-    for(int i = 0; i < METEOR_COUNT; i++) {
-      addNewMeteor();
-    }
-    
-    for(int i = 0; i < ENEMY_COUNT; i++) {
-      addNewEnemy();
-    }
+    createNewPlanet();
     
     long last = System.currentTimeMillis();
     while (true) {
@@ -164,12 +149,22 @@ public class Game extends Canvas {
       
       if(player.health <= 0) gameOver();
       
-      if(Util.randomInt(1000) == 0 && iceblocks.size() < 3 && planet.isFinished()) {
+      
+      if(Util.randomInt(1000) == 0 && iceblocks.size() < 3 && currentPlanet.isFinished()) {
         addNewIceBlock();
       }
       
-      if(Util.randomInt(2000) == 0 && enemies.size() < ENEMY_COUNT) {
+      if(Util.randomInt(1000) == 0 && meteors.size() < METEOR_COUNT && !currentPlanet.isFinished()) {
+        addNewMeteor();
+      }
+      
+      if(enemies.size() < ENEMY_COUNT) {
         addNewEnemy();
+        System.out.println("Enemies " +enemies.size());
+      }
+      
+      if(currentPlanet.isFinished() && currentPlanet.clouds.size() >= 5) {
+        createNewPlanet();
       }
       
       for(int i = 0; i < entities.size(); i++) {
@@ -229,6 +224,27 @@ public class Game extends Canvas {
         e.printStackTrace();
       }
     }    
+  }
+
+  private void createNewPlanet() {
+    currentPlanet = new Planet(this);
+    planets.add(currentPlanet);
+    Rock seedRock = new SeedRock();
+    rocks.add(seedRock);
+    seedRock.x = Util.randomInt(worldSize * 2) - worldSize;
+    seedRock.y = Util.randomInt(worldSize * 2) - worldSize;
+    seedRock.nextX = seedRock.x;
+    seedRock.nextY = seedRock.y;
+    entities.add(seedRock);
+    currentPlanet.addRock(seedRock);
+    
+    if(planetPointer == null) {
+      planetPointer = new Pointer(player, seedRock);
+      pointers.add(planetPointer);
+      entities.add(planetPointer);
+    } else {
+      planetPointer.tracking = seedRock;
+    }
   }
 
   void addNewEnemy() {
@@ -357,7 +373,13 @@ public class Game extends Canvas {
       }
     }
     
-    planet.render(extraG);
+    for(int i = 0; i < planets.size(); i++) {
+      Planet planet = planets.get(i);
+      if((planet.x + (planet.radius * 2)) + transX > cameraL && (planet.x - (planet.radius * 2)) + transX < cameraR &&
+         (planet.y + (planet.radius * 2)) + transY > cameraT && (planet.y  - (planet.radius * 2)) + transY < cameraB) {
+        planet.render(extraG);
+      }
+    }
     
     player.render(extraG);
     

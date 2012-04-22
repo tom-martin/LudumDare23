@@ -123,6 +123,13 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3896"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -131,9 +138,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="2411.8961"
-     inkscape:cy="-500.71732"
+     inkscape:zoom="0.35"
+     inkscape:cx="2899.5734"
+     inkscape:cy="-767.76521"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1789,5 +1796,70 @@
        inkscape:export-xdpi="9.1574173"
        inkscape:export-ydpi="9.1574173"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\heart.png" />
+    <path
+       sodipodi:type="star"
+       style="fill:#aa0000;fill-opacity:1;stroke:#810000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3880"
+       sodipodi:sides="14"
+       sodipodi:cx="3360"
+       sodipodi:cy="1132.3622"
+       sodipodi:r1="480.30603"
+       sodipodi:r2="326.60809"
+       sodipodi:arg1="0.607802"
+       sodipodi:arg2="0.83220147"
+       inkscape:flatsided="false"
+       inkscape:rounded="0.12"
+       inkscape:randomized="0.124"
+       d="m 3745.7682,1421.0178 c -15.1164,16.1662 -121.7352,-15.9876 -137.1902,-0.9049 -15.455,15.0827 12.2562,179.6407 -6.9844,187.5551 -19.2405,7.9143 -74.1371,-202.8467 -93.3354,-197.1413 -19.1982,5.7055 -65.8219,195.8117 -85.9226,193.9705 -20.1007,-1.8411 -107.1201,-172.4329 -127.9563,-177.928 -20.8361,-5.4951 -116.5507,115.8728 -137.8754,109.8936 -21.3247,-5.9791 45.9783,-71.6999 25.6849,-81.6244 -20.2934,-9.9245 -148.3096,40.6541 -166.0811,27.0268 -17.7715,-13.6274 75.0216,-165.8269 68.4811,-185.0296 -6.5406,-19.2027 -159.7242,45.9688 -164.6266,25.4689 -4.9023,-20.4998 87.8651,-124.8065 88.28,-145.4852 0.4149,-20.6787 -69.1015,-40.6753 -69.2729,-61.798 -0.1714,-21.1227 59.1279,-111.3652 69.8894,-128.46736 10.7616,-17.1022 -99.2829,-77.56013 -85.6655,-93.97145 13.6174,-16.41132 238.7602,22.58528 256.4286,11.19516 17.6685,-11.39013 -131.2019,-176.96836 -112.1314,-187.55505 19.0704,-10.58669 190.5617,147.12451 210.4878,138.4246 19.9262,-8.6999 67.1316,-145.68313 87.7635,-145.54409 20.6319,0.13905 -11.7199,65.0921 8.9629,69.10238 20.6829,4.01029 117.3592,-131.05571 137.8736,-123.08277 20.5143,7.97294 73.9644,142.18473 91.4694,155.21283 17.505,13.02809 153.2767,17.87574 168.0446,31.68984 14.7678,13.81411 -80.5077,166.21421 -68.4811,185.02951 12.0266,18.8154 155.7768,-76.85335 162.6669,-57.80733 6.8901,19.04602 -205.8944,101.68163 -207.5203,122.00593 -1.626,20.3243 192.1491,39.524 188.3887,61.798 -3.7603,22.274 -182.2362,119.8682 -188.8827,138.7576 -6.6465,18.8894 102.6208,113.0426 87.5045,129.2087 z"
+       transform="matrix(0.353768,0,0,0.353768,2227.7817,1519.1542)"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\alien.png"
+       inkscape:export-xdpi="15.092827"
+       inkscape:export-ydpi="15.092827" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+       id="path3882"
+       sodipodi:cx="1444.2858"
+       sodipodi:cy="1866.6479"
+       sodipodi:rx="150"
+       sodipodi:ry="51.42857"
+       d="m 1594.2858,1866.6479 a 150,51.42857 0 1 1 -300,0 150,51.42857 0 1 1 300,0 z"
+       transform="matrix(0.30000698,0.18747695,-0.18747695,0.30000698,3265.884,1054.604)"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\alien.png"
+       inkscape:export-xdpi="15.092827"
+       inkscape:export-ydpi="15.092827" />
+    <path
+       transform="matrix(-0.30000698,0.18747695,0.18747695,0.30000698,3565.9897,1053.5932)"
+       d="m 1594.2858,1866.6479 a 150,51.42857 0 1 1 -300,0 150,51.42857 0 1 1 300,0 z"
+       sodipodi:ry="51.42857"
+       sodipodi:rx="150"
+       sodipodi:cy="1866.6479"
+       sodipodi:cx="1444.2858"
+       id="path3884"
+       style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+       sodipodi:type="arc"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\alien.png"
+       inkscape:export-xdpi="15.092827"
+       inkscape:export-ydpi="15.092827" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:7.07535982;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 3380.0547,1998.5874 c -22.0548,15.8037 28.7009,-47.0979 47.4649,-47.2467 23.892,-0.1894 45.5255,46.236 45.5255,46.236"
+       id="path3886"
+       sodipodi:nodetypes="csc"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\alien.png"
+       inkscape:export-xdpi="15.092827"
+       inkscape:export-ydpi="15.092827" />
+    <rect
+       style="fill:none;stroke:#3d9900;stroke-width:7.35168265999999980;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;opacity:0"
+       id="rect3822-6"
+       width="374.28653"
+       height="374.28653"
+       x="3241.4282"
+       y="1736.6475"
+       rx="61.754124"
+       ry="0"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\alien.png"
+       inkscape:export-xdpi="15.092827"
+       inkscape:export-ydpi="15.092827" />
   </g>
 </svg>
