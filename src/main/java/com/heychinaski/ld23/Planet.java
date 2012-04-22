@@ -38,6 +38,8 @@ public class Planet {
       y = rock.y;
     }
     
+    game.scoreDirty = true;
+    
     radius = max(radius, max(abs(y - rock.y), abs(x - rock.x)));
   }
   
@@ -95,5 +97,16 @@ public class Planet {
   
   public boolean maxSizeReached() {
     return rocks.size() >= MAX_SIZE;
+  }
+  
+  public int score() {
+    if(rocks.size() <= 1) return 0;
+    int score = 0;
+    for(int i = 0; i < rocks.size(); i++) {
+      Rock rock = rocks.get(i);
+      score += (rock.w * rock.h * (rock.grass.size() + 1));
+    }
+    
+    return score;
   }
 }

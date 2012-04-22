@@ -168,9 +168,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748737"
-     inkscape:cx="2790.854"
-     inkscape:cy="-2270.7467"
+     inkscape:zoom="0.35"
+     inkscape:cx="2690.0596"
+     inkscape:cy="-2841.8992"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -195,6 +195,20 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:154.10879517000001000px;font-style:normal;font-weight:normal;fill:#58de00;fill-opacity:1;stroke:#087c2b;font-family:Bitstream Vera Sans;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="3711.2881"
+       y="3018.4167"
+       id="text4130"><tspan
+         sodipodi:role="line"
+         id="tspan4132"
+         x="3711.2881"
+         y="3018.4167">Game over!</tspan><tspan
+         sodipodi:role="line"
+         x="3711.2881"
+         y="3211.0527"
+         id="tspan4134">Score:</tspan></text>
     <path
        inkscape:export-ydpi="26.787727"
        inkscape:export-xdpi="26.787727"
@@ -1907,8 +1921,8 @@
        style="font-size:40px;font-style:normal;font-weight:normal;fill:#e2e2e2;fill-opacity:1;stroke:#ea2a2a;stroke-opacity:1;font-family:Impact;-inkscape-font-specification:Impact"
        transform="matrix(9.8617321,0,0,9.8617321,-9072.0178,-16327.276)"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819"><flowRegion
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498"><flowRegion
          id="flowRegion3964"><rect
            id="rect3966"
            width="628.57141"
@@ -1944,24 +1958,24 @@
        d="m 2342.3637,910.31347 c -4.5718,3.14273 -38.466,-20.53817 -43.4475,-18.21134 -4.9815,2.32683 1.3174,25.39128 -3.9826,26.10381 -5.3,0.71252 -21.264,-12.02971 -26.2676,-11.92287 -5.0036,0.10684 -16.5928,40.84022 -21.5913,38.96073 -4.9985,-1.8795 1.8564,-52.77365 -3.1077,-55.19036 -4.9641,-2.41672 -46.9127,18.57965 -51.3436,15.54355 -4.4308,-3.03611 12.8377,-44.81909 9.0834,-48.28925 -3.7543,-3.47016 -28.1488,26.59902 -30.7581,21.6481 -2.6093,-4.95091 16.9728,-29.17333 15.419,-34.18068 -1.5538,-5.00735 -56.7212,-20.58791 -56.2818,-25.82386 0.4395,-5.23596 51.897,-6.47594 53.3446,-11.61869 1.4476,-5.14275 -35.2835,-20.87217 -33.7771,-26.15581 1.5063,-5.28363 57.9407,1.37015 61.2298,-2.42049 3.2891,-3.79063 -27.1837,-51.71616 -24.0946,-55.71097 3.089,-3.9948 39.324,21.21165 43.4475,18.21135 4.1235,-3.00031 -1.2442,-25.61102 3.9826,-26.10382 5.2268,-0.49279 22.7106,23.01351 27.8696,22.35203 5.159,-0.66148 14.9829,-50.99522 19.9892,-49.38988 5.0064,1.60533 -0.08,36.24886 4.7103,39.18457 4.7905,2.93572 45.4956,-6.49786 49.7406,-2.82921 4.245,3.66864 -11.8276,43.85987 -9.0834,48.28924 2.7441,4.42937 29.5557,-12.38726 32.3606,-7.92749 2.805,4.45976 -17.6125,32.716 -15.4185,37.47213 2.1941,4.75613 26.6679,-9.12765 26.5554,-3.90253 -0.1125,5.22512 -25.1891,22.36953 -25.2207,27.62447 -0.032,5.25495 36.8156,48.02135 33.7766,52.59075 -3.039,4.56941 -59.1879,-10.69296 -61.7188,-5.64984 -2.531,5.04312 29.1559,34.20363 24.5841,37.34636 z"
        transform="translate(-652.0228,1924.2414)"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        style="fill:none;stroke:#3d9900;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 1643.1451,2735.8921 c -31.0276,7.3914 -10.1693,52.8581 -10.1693,52.8581 l -23.868,-29.4795"
        id="path3818-7"
        sodipodi:nodetypes="ccc"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        id="path3820-5"
        d="m 1639.9721,2724.6806 c -28.7405,3.6973 -41.5384,-37.0257 -41.5384,-37.0257 l -26.5759,37.7404"
        style="fill:none;stroke:#3d9900;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        sodipodi:nodetypes="ccc"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <text
        xml:space="preserve"
        style="font-size:312.94250488px;font-style:normal;font-weight:normal;fill:#55d400;fill-opacity:1;stroke:#255d00;stroke-width:10;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Bitstream Vera Sans"
@@ -1969,15 +1983,15 @@
        y="2902.0256"
        id="text3978"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819"><tspan
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498"><tspan
          sodipodi:role="line"
          id="tspan3980"
          x="1614.0612"
          y="2902.0256">gardener</tspan></text>
     <path
-       inkscape:export-ydpi="20.624819"
-       inkscape:export-xdpi="20.624819"
+       inkscape:export-ydpi="26.257498"
+       inkscape:export-xdpi="26.257498"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
        transform="matrix(0.11217525,0.53421567,-0.53421567,0.11217525,1649.3182,2768.2529)"
        d="m -692.85715,811.64789 a 72.85714,39.285713 0 1 1 -145.71428,0 72.85714,39.285713 0 1 1 145.71428,0 z"
@@ -2003,15 +2017,15 @@
        inkscape:transform-center-x="94.285714"
        inkscape:transform-center-y="17.5"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        style="fill:#666666;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 1176.8767,2321.2915 c -9.6256,-0.09 -20.6128,12.1595 -25.6563,29.3438 -2.535,8.6374 -3.1308,17.0077 -2.0625,23.875 -6.7961,2.3951 -14.2148,7.2966 -20.7812,14.2187 -11.6906,12.3237 -16.8168,27.0163 -13.125,35.5625 -1.3039,7.0952 -1.1994,15.5692 0.6562,24.4063 4.5137,21.4957 17.5654,36.9338 29.1562,34.5 11.5909,-2.4339 17.3262,-21.8168 12.8126,-43.3125 -1.5313,-7.2924 -4.0496,-13.9048 -7.1563,-19.3438 1.9266,-1.6019 3.8306,-3.3568 5.6563,-5.2812 8.3512,-8.8036 13.3483,-18.8152 14.1874,-26.9375 7.1693,-4.4053 14.0081,-14.3072 17.6876,-26.8438 5.5652,-18.9619 1.787,-36.7491 -8.4376,-39.75 -0.9585,-0.2813 -1.9417,-0.4282 -2.9374,-0.4375 z"
        id="path4221-4-1"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        sodipodi:type="arc"
        style="fill:#666666;fill-opacity:1;stroke:none"
@@ -2023,8 +2037,8 @@
        d="m -495.71431,672.36218 a 46.42857,77.14286 0 1 1 -92.85714,0 46.42857,77.14286 0 1 1 92.85714,0 z"
        transform="matrix(0.49112326,0,0,0.49112326,1443.9338,1943.4608)"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        sodipodi:type="arc"
        style="fill:#666666;fill-opacity:1;stroke:#000000;stroke-width:10.18074417;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -2038,8 +2052,8 @@
        inkscape:transform-center-x="155.71429"
        inkscape:transform-center-y="-81.428571"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        transform="matrix(0.69898583,0.25820746,-0.20112441,0.54445797,1793.0147,2177.6353)"
        d="m -844.28572,632.36218 a 20.714285,15.714286 0 1 1 -41.42856,0 20.714285,15.714286 0 1 1 41.42856,0 z"
@@ -2051,14 +2065,14 @@
        style="fill:#ff0000;fill-opacity:1;stroke:none"
        sodipodi:type="arc"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <g
        transform="matrix(0.49112326,0,0,0.49112326,1467.0868,2000.2908)"
        id="g4199-6"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819"
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498"
        style="stroke:#000000;stroke-width:10.18074322;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none">
       <rect
          style="fill:#666666;fill-opacity:1;stroke:#000000;stroke-width:10.18074322;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -2092,8 +2106,8 @@
        style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:18.83720779;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        sodipodi:type="arc"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        transform="matrix(0.49112326,0,0,0.49112326,1519.0055,1986.2587)"
        d="m -554.28574,335.21933 a 162.85715,162.85715 0 1 1 -325.71429,0 162.85715,162.85715 0 1 1 325.71429,0 z"
@@ -2105,23 +2119,23 @@
        style="fill:#ececec;fill-opacity:1;stroke:#000000;stroke-width:20.36148643;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        sodipodi:type="arc"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        style="fill:#ffd42a;fill-opacity:1;stroke:#000000;stroke-width:4.62121201;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 1230.9822,2139.4066 c -6.206,11.7156 -27.2182,20.3333 -52.2197,20.3333 -23.8121,0 -44.0349,-7.8209 -51.2665,-18.687 -4.1561,8.1475 -6.5275,17.3781 -6.5275,27.1785 0,32.7941 26.2751,59.3826 58.6894,59.3826 32.4143,0 58.6894,-26.5885 58.6894,-59.3826 l 0,-0.1155 c -0.019,-10.4244 -2.685,-20.2021 -7.3651,-28.7093 z"
        id="path4209-81"
        sodipodi:nodetypes="cscssccc"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        id="path4213-3"
        d="m 1169.9437,2090.2671 c -7.7228,0 -14.3458,1.7705 -19.2768,4.7603 4.6589,7.9051 8.49,16.5701 11.1547,25.6588 1.6113,5.4959 2.7007,10.8327 3.3071,15.9449 6.0417,2.3331 12.7402,3.6766 19.4864,3.6766 8.2878,0 15.3054,-2.0329 20.3276,-5.4311 -0.636,-4.5741 -1.6611,-9.3219 -3.0885,-14.1904 -2.7493,-9.377 -6.7445,-18.3014 -11.6051,-26.4071 -6.2552,-2.535 -13.2485,-4.012 -20.3054,-4.012 z"
        style="fill:#ffd42a;fill-opacity:1;stroke:#000000;stroke-width:3.55707765;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        inkscape:transform-center-y="-4.7633782"
        inkscape:transform-center-x="-11.11461"
@@ -2135,32 +2149,32 @@
        d="m -692.85715,811.64789 a 72.85714,39.285713 0 1 1 -145.71428,0 72.85714,39.285713 0 1 1 145.71428,0 z"
        transform="matrix(0.11217525,0.53421567,-0.53421567,0.11217525,1584.1633,2772.2935)"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        style="fill:#666666;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 1111.4704,2326.6353 c -9.6255,-0.09 -20.6127,12.1595 -25.6563,29.3437 -2.5314,8.6253 -3.0933,17.0131 -2.0312,23.875 -6.8051,2.3909 -14.2353,7.2854 -20.8125,14.2188 -11.6905,12.3237 -16.8168,27.0163 -13.125,35.5625 -1.3048,7.0962 -1.1998,15.5671 0.6563,24.4062 4.5136,21.4957 17.5654,36.9651 29.1562,34.5313 11.5908,-2.4339 17.3262,-21.8481 12.8125,-43.3438 -1.5313,-7.2923 -4.0496,-13.8735 -7.1563,-19.3125 1.9266,-1.6019 3.8307,-3.3568 5.6563,-5.2812 8.3512,-8.8036 13.3484,-18.8152 14.1875,-26.9375 7.1692,-4.4053 14.0081,-14.3072 17.6875,-26.8438 5.5652,-18.9619 1.7871,-36.7804 -8.4375,-39.7812 -0.9586,-0.2814 -1.9418,-0.4282 -2.9375,-0.4375 z"
        id="path4221-1"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        style="fill:#ffd42a;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 1159.6704,2275.4886 c -7.3058,0 -16.0898,5.8727 -19.7023,13.1785 l -18.4238,37.2689 c -3.6125,7.3059 -0.6512,13.1931 6.6547,13.1931 l 13.7887,0 c 7.3059,0 16.09,-5.8872 19.7024,-13.1931 l 9.6332,-19.4699 c 1.2861,0.4643 2.6548,0.7265 4.0828,0.7265 l 45.9578,0 c 7.3058,0 13.193,-6.5685 13.193,-14.7187 l 0,-2.2811 c 0,-8.1502 -5.8872,-14.7042 -13.193,-14.7042 l -45.9578,0 c -0.3178,0 -0.6322,0.019 -0.9443,0.043 -0.328,-0.026 -0.6547,-0.043 -1.0026,-0.043 l -13.7888,0 z"
        id="rect4350-69"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
        style="fill:#666666;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 1116.6267,2232.1978 c -12.5933,0 -22.7813,16.982 -22.7813,37.9062 0,15.5901 5.6517,28.9671 13.75,34.7813 2.5861,7.3303 7.9049,15.0671 15.4375,21.6562 15.7491,13.7764 35.2399,17.2599 43.5312,7.7813 8.2914,-9.4787 2.2179,-28.3174 -13.5312,-42.0938 -4.759,-4.1629 -9.8452,-7.3841 -14.875,-9.5937 0.8308,-3.9302 1.2812,-8.1294 1.2812,-12.5313 0,-20.9242 -10.2192,-37.9062 -22.8124,-37.9062 z"
        id="path4215-8"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819" />
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498" />
     <path
-       inkscape:export-ydpi="20.624819"
-       inkscape:export-xdpi="20.624819"
+       inkscape:export-ydpi="26.257498"
+       inkscape:export-xdpi="26.257498"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
        sodipodi:nodetypes="cscsscccc"
        id="path4447-0"
@@ -2169,33 +2183,96 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot4089"
-       style="font-size:40px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:#087c2b;stroke-opacity:1;font-family:Bitstream Vera Sans;stroke-width:0.41450496999999997;stroke-miterlimit:4;stroke-dasharray:none"
        transform="matrix(2.4125163,0,0,2.4125163,-1309.1464,-4199.0629)"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819"><flowRegion
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498"><flowRegion
          id="flowRegion4091"><rect
            id="rect4093"
            width="1868.5714"
            height="428.57144"
            x="1054.2858"
            y="2986.6479"
-           style="fill:#ffffff;stroke:#000000;stroke-opacity:1" /></flowRegion><flowPara
+           style="fill:#ffffff;stroke:#087c2b;stroke-opacity:1;stroke-width:0.41450496999999997;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
          id="flowPara4095">Click anywhere to start playing</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4089-7"
-       style="font-size:40px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:#087c2b;stroke-opacity:1;font-family:Bitstream Vera Sans;stroke-width:0.41450496999999997;stroke-miterlimit:4;stroke-dasharray:none"
        transform="matrix(2.4125163,0,0,2.4125163,-1314.4431,-4028.6547)"
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\title.png"
-       inkscape:export-xdpi="20.624819"
-       inkscape:export-ydpi="20.624819"><flowRegion
+       inkscape:export-xdpi="26.257498"
+       inkscape:export-ydpi="26.257498"><flowRegion
          id="flowRegion4091-4"><rect
            id="rect4093-0"
            width="781.38409"
            height="619.24371"
            x="1054.2858"
            y="2986.6479"
-           style="fill:#ffffff;stroke:#000000;stroke-opacity:1" /></flowRegion><flowPara
+           style="fill:#ffffff;stroke:#087c2b;stroke-opacity:1;stroke-width:0.41450496999999997;stroke-miterlimit:4;stroke-dasharray:none" /></flowRegion><flowPara
          id="flowPara4095-0">Instructions:</flowPara><flowPara
-         id="flowPara4128">  Use w,s,a and d to move around.  Use the left mouse button to shoot and throw things.  The red rock (follow the red arrow) is your seed rock.  Throw other rocks at it to create your planet. You can get rocks by destroying meteors (follow the brown arrow).  Be careful not to let any meteors hit your planet when it is small as it will break apart.  Once a planet is finished you can start another one.</flowPara></flowRoot>  </g>
+         id="flowPara4128">  Use w,s,a and d to move around.  Use the left mouse button to shoot and throw things.  The red rock (follow the red arrow) is your seed rock.  Throw other rocks at it to create your planet. You can get rocks by destroying meteors (follow the brown arrow).  Be careful not to let any meteors hit your planet when it is small as it will break apart.  Once a planet is finished you can start another one.</flowPara></flowRoot>    <path
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#bababa;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;font-family:Arial Black;-inkscape-font-specification:Arial Black"
+       id="path4146"
+       d="m 3557.3585,3748.9414 0,131.0628 -36.216,0 0,-85.8811 c -5.8602,4.4538 -11.5301,8.0579 -17.0091,10.8122 -5.4795,2.7544 -12.3502,5.3913 -20.6133,7.9112 l 0,-29.3597 c 12.189,-3.9259 21.6534,-8.6434 28.3926,-14.1522 6.7392,-5.5083 12.0135,-12.306 15.8223,-20.3932 z"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\1.png"
+       inkscape:export-xdpi="21.166668"
+       inkscape:export-ydpi="21.166668" />
+    <path
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#bababa;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;font-family:Arial Black;-inkscape-font-specification:Arial Black"
+       id="path4148"
+       d="m 3655.5404,4120.0042 -107.417,0 c 1.231,-10.6071 4.9669,-20.584 11.2079,-29.9309 6.241,-9.3469 17.9467,-20.3787 35.1169,-33.0952 10.4896,-7.7942 17.1996,-13.7129 20.1299,-17.7567 2.9299,-4.0434 4.3949,-7.8815 4.3949,-11.5153 0,-3.9259 -1.4506,-7.2811 -4.3512,-10.0647 -2.9007,-2.7832 -6.5489,-4.1752 -10.9437,-4.1752 -4.5708,0 -8.3068,1.4357 -11.2074,4.3071 -2.9011,2.8718 -4.8494,7.9408 -5.8459,15.2071 l -35.864,-2.9007 c 1.4064,-10.0795 3.9848,-17.9466 7.7352,-23.6021 3.7508,-5.6545 9.0395,-9.9913 15.8665,-13.0094 6.8269,-3.0177 16.2764,-4.5268 28.3484,-4.5268 12.5995,0 22.4004,1.4357 29.4034,4.3071 7.0029,2.8714 12.5117,7.2816 16.5258,13.2291 4.0141,5.9485 6.0214,12.6143 6.0214,19.998 0,7.8527 -2.3003,15.3539 -6.9004,22.5031 -4.6001,7.1497 -12.9658,15.0023 -25.0963,23.558 -7.2077,4.9813 -12.0279,8.4679 -14.46,10.4603 -2.4317,1.9924 -5.2887,4.6001 -8.5701,7.8234 l 55.9057,0 z"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\2.png"
+       inkscape:export-xdpi="21.166668"
+       inkscape:export-ydpi="21.166668" />
+    <path
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#bababa;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;font-family:Arial Black;-inkscape-font-specification:Arial Black"
+       id="path4150"
+       d="m 3788.5902,3885.5524 -33.8428,-6.0654 c 2.8129,-10.7826 8.2191,-19.0453 16.2184,-24.7885 7.999,-5.7428 19.3239,-8.6142 33.9743,-8.6142 16.8183,0 28.9785,3.1352 36.4797,9.4054 7.5007,6.2707 11.251,14.1526 11.2515,23.6458 -5e-4,5.5672 -1.5239,10.607 -4.5713,15.1193 -3.0473,4.5123 -7.6474,8.4679 -13.8007,11.8668 4.9813,1.2309 8.7902,2.6666 11.4275,4.3071 4.2779,2.6373 7.6034,6.1096 9.977,10.4166 2.3732,4.3071 3.56,9.4495 3.56,15.4268 0,7.5011 -1.9632,14.6945 -5.8895,21.58 -3.9264,6.8859 -9.5814,12.1894 -16.9651,15.9105 -7.3841,3.7211 -17.0825,5.5817 -29.096,5.5817 -11.7205,0 -20.9647,-1.3772 -27.7332,-4.1311 -6.7685,-2.7544 -12.3357,-6.7834 -16.7013,-12.0869 -4.366,-5.3035 -7.7208,-11.9693 -10.0647,-19.9975 l 35.7762,-4.7468 c 1.4065,7.2077 3.5893,12.2038 6.5484,14.9875 2.9596,2.7831 6.7248,4.1752 11.2957,4.1752 4.8053,0 8.805,-1.758 11.9986,-5.2743 3.1936,-3.5159 4.7909,-8.2042 4.7909,-14.0644 0,-5.9773 -1.5383,-10.6066 -4.6149,-13.8884 -3.0767,-3.2819 -7.2523,-4.9228 -12.5261,-4.9228 -2.8129,0 -6.6807,0.7034 -11.6031,2.1099 l 1.8457,-25.5797 c 1.9925,0.2925 3.5456,0.4411 4.6591,0.4411 4.6878,4e-4 8.5997,-1.4942 11.7349,-4.4831 3.1351,-2.9884 4.7026,-6.534 4.7026,-10.6358 0,-3.9264 -1.1719,-7.0615 -3.5158,-9.4059 -2.3444,-2.3439 -5.5673,-3.5158 -9.6696,-3.5158 -4.2193,0 -7.6474,1.2745 -10.2843,3.8237 -2.6374,2.5491 -4.4246,7.0173 -5.3621,13.405 z"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\3.png"
+       inkscape:export-xdpi="20.830318"
+       inkscape:export-ydpi="20.830318" />
+    <path
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#bababa;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;font-family:Arial Black;-inkscape-font-specification:Arial Black"
+       id="path4152"
+       d="m 3892.7941,3684.4901 -65.2238,0 0,-29.4475 65.2238,-77.5298 31.205,0 0,79.2 16.1743,0 0,27.7773 -16.1743,0 0,24.0855 -31.205,0 z m 0,-27.7773 0,-40.5231 -34.458,40.5231 z"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\4.png"
+       inkscape:export-xdpi="20.830318"
+       inkscape:export-ydpi="20.830318" />
+    <path
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#bababa;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;font-family:Arial Black;-inkscape-font-specification:Arial Black"
+       id="path4154"
+       d="m 4040.3025,4013.9957 85.0017,0 0,28.5686 -57.5763,0 -3.0767,19.3386 c 3.9849,-1.8754 7.9261,-3.2818 11.8231,-4.2193 3.8971,-0.9375 7.7501,-1.4064 11.5594,-1.4064 12.892,0 23.3523,3.8971 31.381,11.6908 8.0282,7.7941 12.0427,17.61 12.0427,29.4475 0,8.3216 -2.0658,16.3205 -6.1973,23.9972 -4.1316,7.6772 -9.9914,13.537 -17.5803,17.5808 -7.5889,4.0433 -17.3022,6.065 -29.1397,6.065 -8.4976,0 -15.7787,-0.8056 -21.8437,-2.4173 -6.0655,-1.6112 -11.2223,-4.0141 -15.4708,-7.2077 -4.2491,-3.1941 -7.6916,-6.8126 -10.3289,-10.856 -2.6369,-4.0438 -4.8346,-9.0835 -6.5925,-15.1193 l 36.2159,-3.9556 c 0.879,5.8013 2.9299,10.2114 6.1533,13.2291 3.2229,3.0181 7.0614,4.5272 11.5152,4.5272 4.9809,0 9.0976,-1.8898 12.3502,-5.6699 3.2521,-3.7796 4.8786,-9.4202 4.8786,-16.9209 0,-7.6772 -1.6409,-13.303 -4.9228,-16.8773 -3.2818,-3.5749 -7.6474,-5.3621 -13.0972,-5.3621 -3.4578,0 -6.7982,0.8497 -10.021,2.5492 -2.4029,1.2304 -5.0398,3.4573 -7.9112,6.6802 l -30.502,-4.3948 z"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\5.png"
+       inkscape:export-xdpi="20.830318"
+       inkscape:export-ydpi="20.830318" />
+    <path
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#bababa;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;font-family:Arial Black;-inkscape-font-specification:Arial Black"
+       id="path4157"
+       d="m 4143.9719,3628.7183 -35.6003,4.3948 c -0.9379,-4.9808 -2.5055,-8.4971 -4.7031,-10.5481 -2.1977,-2.0509 -4.9079,-3.0766 -8.1308,-3.0766 -5.8018,0 -10.3141,2.9299 -13.537,8.7902 -2.3443,4.2193 -4.073,13.2439 -5.1865,27.0738 4.2783,-4.3363 8.6732,-7.5448 13.1855,-9.625 4.5123,-2.0806 9.7281,-3.1207 15.6468,-3.1207 11.486,0 21.1992,4.1023 29.1397,12.3065 7.9404,8.2041 11.9108,18.606 11.9108,31.2054 0,8.4972 -2.0072,16.2621 -6.0213,23.2938 -4.0146,7.0322 -9.5814,12.3506 -16.7014,15.9547 -7.1204,3.6036 -16.0424,5.4057 -26.7664,5.4057 -12.8925,0 -23.2358,-2.1972 -31.0295,-6.5925 -7.7942,-4.3953 -14.0208,-11.4127 -18.6793,-21.0525 -4.6591,-9.6403 -6.9886,-22.4005 -6.9886,-38.2818 0,-23.2645 4.8935,-40.3034 14.6801,-51.1152 9.7861,-10.8118 23.3523,-16.218 40.6986,-16.218 10.2555,0 18.3571,1.1869 24.3051,3.56 5.948,2.3736 10.8852,5.8454 14.8115,10.4162 3.9263,4.5713 6.9152,10.3141 8.9661,17.2293 z m -65.9267,57.4003 c 0,6.9737 1.7579,12.4379 5.2742,16.3935 3.5159,3.956 7.823,5.9336 12.9217,5.9336 4.6879,0 8.6142,-1.7872 11.7786,-5.362 3.1644,-3.5749 4.7468,-8.9076 4.7468,-15.9984 0,-7.2666 -1.641,-12.8042 -4.9223,-16.6135 -3.2819,-3.8089 -7.3549,-5.7135 -12.2188,-5.7135 -4.9812,0 -9.1564,1.8457 -12.5261,5.5375 -3.3696,3.6923 -5.0541,8.9661 -5.0541,15.8228 z"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\6.png"
+       inkscape:export-xdpi="20.830318"
+       inkscape:export-ydpi="20.830318" />
+    <path
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#bababa;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;font-family:Arial Black;-inkscape-font-specification:Arial Black"
+       id="path4159"
+       d="m 4175.4865,3862.5672 104.5163,0 0,24.1733 c -9.0835,8.2046 -16.672,17.0825 -22.7668,26.6346 -7.3837,11.603 -13.2147,24.5247 -17.4925,38.7651 -3.3988,11.0755 -5.6843,24.1732 -6.8562,39.2926 l -35.6885,0 c 2.8129,-21.0381 7.237,-38.6774 13.2732,-52.9178 6.0358,-14.2399 15.5879,-29.4763 28.6563,-45.7091 l -63.6418,0 z"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\7.png"
+       inkscape:export-xdpi="20.830318"
+       inkscape:export-ydpi="20.830318" />
+    <path
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#bababa;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;font-family:Arial Black;-inkscape-font-specification:Arial Black"
+       id="path4161"
+       d="m 4299.5152,3622.1652 c -5.6258,-2.9884 -9.7277,-6.3287 -12.3061,-10.0206 -3.5163,-5.0398 -5.2742,-10.8415 -5.2742,-17.4047 0,-10.7826 5.069,-19.6025 15.2071,-26.4587 7.9112,-5.2743 18.3715,-7.9112 31.3809,-7.9112 17.2293,0 29.9602,3.2819 38.194,9.8451 8.2334,6.5633 12.3502,14.8264 12.3502,24.7885 0,5.8017 -1.641,11.2223 -4.9224,16.262 -2.4613,3.7504 -6.3292,7.3837 -11.6034,10.8996 6.9737,3.3404 12.1746,7.7649 15.6027,13.2737 3.4281,5.5083 5.1424,11.603 5.1424,18.2837 0,6.4462 -1.4798,12.4672 -4.439,18.0637 -2.9596,5.5965 -6.5929,9.9184 -10.9,12.9658 -4.3071,3.0473 -9.6691,5.2886 -16.0861,6.7243 -6.417,1.4357 -13.2588,2.1536 -20.5255,2.1536 -13.6539,0 -24.085,-1.6112 -31.2932,-4.8346 -7.2077,-3.2229 -12.6872,-7.9697 -16.4376,-14.2399 -3.7508,-6.2707 -5.6257,-13.2737 -5.6257,-21.0089 0,-7.5596 1.7579,-13.9618 5.2743,-19.2068 3.5158,-5.2445 8.9364,-9.3027 16.2616,-12.1746 z m 16.0865,-25.3159 c -5e-4,4.4538 1.3916,8.0435 4.1752,10.7682 2.7836,2.7251 6.4899,4.0874 11.1197,4.0874 4.1018,0 7.4714,-1.3475 10.1088,-4.0433 2.6369,-2.6959 3.9556,-6.1825 3.9556,-10.4604 0,-4.4538 -1.3772,-8.0723 -4.1316,-10.8563 -2.7544,-2.7832 -6.2702,-4.1753 -10.5481,-4.1753 -4.3368,0 -7.8675,1.3628 -10.5922,4.0875 -2.7251,2.7251 -4.0879,6.2559 -4.0874,10.5922 z m -1.9339,55.4669 c 0,5.6842 1.7287,10.3284 5.186,13.9325 3.4574,3.6036 7.413,5.4057 11.8668,5.4057 4.2778,0 8.1164,-1.8313 11.5153,-5.4939 3.3988,-3.6626 5.0982,-8.3068 5.0982,-13.9325 0,-5.6843 -1.7138,-10.3429 -5.1419,-13.9762 -3.4286,-3.6334 -7.3986,-5.4503 -11.9109,-5.4503 -4.4538,0 -8.3364,1.7584 -11.6471,5.2743 -3.3111,3.5163 -4.9664,8.2627 -4.9664,14.2404 z"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\8.png"
+       inkscape:export-xdpi="20.830318"
+       inkscape:export-ydpi="20.830318" />
+    <path
+       style="font-size:40px;font-style:normal;font-weight:normal;fill:#bababa;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;font-family:Arial Black;-inkscape-font-specification:Arial Black"
+       id="path4163"
+       d="m 4439.8122,3851.0842 35.6003,-4.4831 c 0.9379,4.9813 2.5198,8.4971 4.7467,10.5481 2.227,2.0514 4.9521,3.0766 8.175,3.0766 5.7432,0 10.2262,-2.9006 13.4491,-8.7024 2.344,-4.2778 4.1023,-13.3317 5.2743,-27.1616 -4.2778,4.3953 -8.6731,7.6182 -13.1854,9.6691 -4.5124,2.0514 -9.7281,3.0766 -15.6469,3.0766 -11.5445,0 -21.287,-4.1019 -29.2274,-12.3065 -7.9404,-8.2041 -11.9108,-18.5767 -11.9108,-31.1172 0,-8.5561 2.0216,-16.3498 6.0654,-23.382 4.0434,-7.0322 9.6106,-12.3506 16.7013,-15.9547 7.0908,-3.6036 15.9984,-5.4057 26.7224,-5.4057 12.8925,0 23.2358,2.2121 31.0295,6.6366 7.7941,4.4246 14.0207,11.4568 18.6793,21.0967 4.6591,9.6398 6.9881,22.3711 6.9886,38.1935 -5e-4,23.265 -4.8935,40.3034 -14.6797,51.1152 -9.7866,10.8123 -23.3532,16.218 -40.699,16.218 -10.2555,0 -18.3422,-1.1864 -24.261,-3.56 -5.9192,-2.3732 -10.8415,-5.8454 -14.7678,-10.4162 -3.9264,-4.5713 -6.9445,-10.2848 -9.0539,-17.141 z m 65.9267,-57.4886 c 0,-6.9732 -1.7579,-12.4379 -5.2738,-16.3935 -3.5163,-3.9556 -7.7942,-5.9336 -12.8339,-5.9336 -4.7468,0 -8.688,1.7877 -11.8231,5.362 -3.1352,3.5749 -4.7027,8.9369 -4.7027,16.0861 0,7.2082 1.626,12.717 4.8786,16.5258 3.2522,3.8093 7.3104,5.7135 12.1746,5.7135 5.0398,0 9.2294,-1.8457 12.5698,-5.5375 3.3403,-3.6919 5.0105,-8.9661 5.0105,-15.8228 z"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\9.png"
+       inkscape:export-xdpi="20.830318"
+       inkscape:export-ydpi="20.830318" />
+  </g>
 </svg>

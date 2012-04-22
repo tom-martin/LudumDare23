@@ -3,23 +3,20 @@ package com.heychinaski.ld23;
 import static java.lang.Math.round;
 
 import java.awt.Canvas;
-import java.awt.Container;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 public class Game extends Canvas {
   private static final int METEOR_COUNT = 12;
@@ -70,8 +67,24 @@ public class Game extends Canvas {
   private boolean running = true;
 
   private boolean showTitle = true;
+  
+  private boolean paused = false;
 
-  private Image title; 
+  private Image title;
+
+  private long score; 
+  
+  private Image[] nums = new Image[10];
+
+  boolean scoreDirty = false;
+
+  private boolean showGameover;
+
+  private Image gameOverImage;
+
+  private Image pausedImage;
+
+  private long pauseTime;
 
   public Game() {
     setIgnoreRepaint(true);
@@ -88,11 +101,28 @@ public class Game extends Canvas {
       public void keyPressed(KeyEvent e) { input.keyDown(e.getKeyCode());}
     });
     
+    addFocusListener(new FocusListener() {
+      
+      @Override
+      public void focusLost(FocusEvent arg0) {
+        if(!showGameover && !showTitle) paused = true;
+      }
+      
+      @Override
+      public void focusGained(FocusEvent arg0) {
+        
+      }
+    });
+    
     addMouseListener(new MouseListener() {
 
       @Override
       public void mouseClicked(MouseEvent arg0) {
-        if(showTitle) {
+        if(showGameover) {
+          reset();
+          showTitle = true;
+          showGameover = false;
+        } else if(showTitle) {
           showTitle = false;
         }
       }
@@ -134,10 +164,24 @@ public class Game extends Canvas {
       if(Util.randomInt(200) == 0) System.out.println("Fps: " + 1f / tick);
       last = now;
       
-      if(showTitle) {
+      if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
+      if(input.isKeyDown(KeyEvent.VK_P) && System.currentTimeMillis() - pauseTime > 500) {
+        pauseTime = System.currentTimeMillis();
+        paused = !paused;
+      }
+      
+      if(showTitle || showGameover  || paused) {
+        Image img = showGameover ? gameOverImage : title;
+        if(paused) img = pausedImage;
         g = (Graphics2D)strategy.getDrawGraphics();
         bgTile.render(round(-camera.x), round(-camera.y), g);
-        g.drawImage(title, (getWidth() - title.getWidth(null)) / 2, 10, null);
+        int imgX = (getWidth() - img.getWidth(null)) / 2;
+        int imgY = (getHeight() - img.getHeight(null)) / 2;
+        g.drawImage(img, imgX, imgY, null);
+        
+        if(showGameover) {
+          renderScore(g, imgX + 110, imgY + 45);
+        }
         
         g.dispose();
         strategy.show();
@@ -145,13 +189,15 @@ public class Game extends Canvas {
         continue;
       }
       
-      if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
-      
       if(player.health <= 0) {
         gameOver();
         continue;
       }
       
+      if(scoreDirty) {
+        updateScore();
+        scoreDirty = false;
+      }
       
       if(Util.randomInt(1000) == 0 && iceblocks.size() < 3 && currentPlanet.isFinished()) {
         addNewIceBlock();
@@ -233,7 +279,30 @@ public class Game extends Canvas {
     entities = new ArrayList<Entity>();
     collisionManager = new CollisionManager(this);
     
-    this.imageManager = new ImageManager(this, "title.png", "man_flying.png", "man_arm.png", "grass1.png", "grass2.png", "grass3.png", "heart.png", "alien.png");
+    this.imageManager = new ImageManager(this, "title.png",
+                                                "gameover.png",
+                                                "paused.png",
+                                                "man_flying.png", 
+                                                "man_arm.png", 
+                                                "grass1.png", 
+                                                "grass2.png", 
+                                                "grass3.png", 
+                                                "heart.png", 
+                                                "alien.png", 
+                                                "0.png",
+                                                "1.png",
+                                                "2.png",
+                                                "3.png",
+                                                "4.png",
+                                                "5.png",
+                                                "6.png",
+                                                "7.png",
+                                                "8.png",
+                                                "9.png");
+    
+    for(int i = 0; i < 10; i++) {
+      nums[i] = imageManager.get(i+".png");
+    }
     
     heartImage = imageManager.get("heart.png");
     alienImage = imageManager.get("alien.png");
@@ -243,6 +312,8 @@ public class Game extends Canvas {
     camera = new EntityTrackingCamera(player, this);
     bgTile = new BackgroundTile(1024, g.getDeviceConfiguration());
     title = imageManager.get("title.png");
+    gameOverImage = imageManager.get("gameover.png");
+    pausedImage = imageManager.get("paused.png");
     
     entities.add(player);
     
@@ -257,7 +328,10 @@ public class Game extends Canvas {
     
     planetPointer = null;
     
+    score = 0;
+    
     createNewPlanet();
+    addNewMeteor();
   }
 
   private void createNewPlanet() {
@@ -292,14 +366,35 @@ public class Game extends Canvas {
   }
 
   private void gameOver() {
-    showTitle = true;
-    reset();
+    showGameover = true;
+    showTitle = false;
   }
 
   private void renderHUD(Graphics2D g) {
+    renderScore(g, 380, getHeight() - 50);
     g.setClip(new Rectangle(0, getHeight() - 50, Math.round(380 * ((float)player.health / 100)), 50));
     for(int i = 0; i < 10; i++) {
       g.drawImage(heartImage, 10 + (i * 37), getHeight() - 50, null);
+    }
+  }
+
+  private void renderScore(Graphics2D g, int x, int y) {
+    String scoreStr = "" + score;
+    int nextX = x;
+    for(int i= 0; i < scoreStr.length(); i++) {
+      Character c = scoreStr.charAt(i);
+      Image img = nums[c.charValue() - 48];
+      g.drawImage(img, nextX, y, null);
+      nextX += img.getWidth(null) + 5;
+    }
+  }
+
+  private void updateScore() {
+    score = 0;
+    
+    for(int i = 0; i < planets.size(); i++) {
+      Planet planet = planets.get(i);
+      score += planet.score();
     }
   }
 

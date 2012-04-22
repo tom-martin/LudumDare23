@@ -71,6 +71,7 @@ public class Cloud extends Entity {
       nearestRock = planet.getNearestRock(nextX, nextY);
       if(nearestRock != null && nearestRock.grass.size() < 10) {
         nearestRock.addGrassBlob(new GrassBlob(nearestRock, game.imageManager.get("grass1.png")));
+        planet.game.scoreDirty = true;
       }
     }
     
