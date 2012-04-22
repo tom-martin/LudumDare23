@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game extends Canvas {
+  private static final int METEOR_COUNT = 8;
+
   private static final long serialVersionUID = 1L;
   
   private BackgroundTile bgTile;
@@ -129,7 +131,7 @@ public class Game extends Canvas {
     pointers.add(pointer);
     entities.add(pointer);
     
-    for(int i = 0; i < 5; i++) {
+    for(int i = 0; i < METEOR_COUNT; i++) {
       addNewMeteor();
     }
     
@@ -336,5 +338,10 @@ public class Game extends Canvas {
     
     pointers.remove(iceBlock.pointer);
     entities.remove(iceBlock.pointer);
+  }
+
+  public void removeRock(Rock rock) {
+    rocks.remove(rock);
+    entities.remove(rock);
   }
 }

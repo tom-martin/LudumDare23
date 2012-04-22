@@ -37,7 +37,7 @@ public class Player extends Entity {
   static final float DAMP = 200;
   static final float THROW_SPEED = 200;
   static final float BULLET_SPEED = 600;
-  static final float FIRE_PAUSE = 500;
+  static final float FIRE_PAUSE = 200;
 
   public Player(Image flyingImage, Image armImage, GraphicsConfiguration gc) {
     w = flyingImage.getWidth(null);
@@ -122,8 +122,8 @@ public class Player extends Entity {
     }
     
     if(with instanceof Meteor) {
-      xMomentum = -xMomentum + ((Meteor)with).xMomentum;
-      yMomentum = -yMomentum + ((Meteor)with).yMomentum;
+      xMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -xMomentum + ((Meteor)with).xMomentum));
+      yMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -yMomentum + ((Meteor)with).yMomentum));
     }
   }
   

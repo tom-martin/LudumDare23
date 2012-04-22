@@ -9,8 +9,6 @@ public abstract class SpaceJunk extends Entity {
   int[] xPositions = new int[12];
   int[] yPositions = new int[12];
   
-  float xMomentum, yMomentum;
-  
   Color outlineColor = new Color(200, 150, 50);
   Color fillColor = new Color(255, 200, 100);
   
@@ -61,8 +59,10 @@ public abstract class SpaceJunk extends Entity {
       yPositions[i] += Util.randomInt(size / 3) - (size / 6);
     }
     
-    xMomentum = Util.randomFloat(500) - 250;
-    yMomentum = Util.randomFloat(500) - 250;
+    xMomentum = Util.randomFloat(800) - 400;
+    yMomentum = Util.randomFloat(800) - 400;
+    
+    System.out.println(xMomentum);
   }
   
   @Override

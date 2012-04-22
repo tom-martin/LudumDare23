@@ -20,6 +20,8 @@ public class Meteor extends SpaceJunk {
       
         rock.nextX = this.x + (randomInt((int)w) - (w / 2));
         rock.nextY = this.y + (randomInt((int)h) - (h / 2));
+        rock.x = nextX;
+        rock.x = nextY;
 //        rock.xMomentum += this.xMomentum;
 //        rock.yMomentum += this.yMomentum;
       }

@@ -12,6 +12,9 @@ public abstract class Entity {
   public float nextX = x;
   public float nextY = y;
   
+  public float xMomentum;
+  public float yMomentum;
+  
   public abstract void update(float tick, Game game);
   
   public abstract void render(Graphics2D g);

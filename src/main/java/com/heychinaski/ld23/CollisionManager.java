@@ -41,8 +41,8 @@ public class CollisionManager {
         Entity b = game.entities.get(j);
         
         if(a != b) {
-          boundsB.x = b.nextX - (b.w / 2);
-          boundsB.y = b.nextY - (b.h / 2);
+          boundsB.x = b.x - (b.w / 2);
+          boundsB.y = b.y - (b.h / 2);
           boundsB.width = b.w;
           boundsB.height = b.h;
           

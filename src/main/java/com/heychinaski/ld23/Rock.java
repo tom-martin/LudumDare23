@@ -7,6 +7,8 @@ import java.util.List;
 
 public class Rock extends SpaceJunk {
   
+  private static final float MAX_MOMENTUM = 400;
+
   List<GrassBlob> grass = new ArrayList<GrassBlob>();
   
   boolean held = false;
@@ -52,6 +54,11 @@ public class Rock extends SpaceJunk {
     if(planet != null || held) return;
     if(entity instanceof Player) return;
     
+    if(entity instanceof Bullet) {
+      game.removeBullet((Bullet)entity);
+      game.removeRock(this);
+    }
+    
     if( entity instanceof Rock && 
         ((Rock)entity).planet != null &&
         !((Rock)entity).planet.maxSizeReached() &&
@@ -61,13 +68,8 @@ public class Rock extends SpaceJunk {
       return;
     }
     
-    xMomentum *= -1;
-    yMomentum *= -1;
-   
-    if(planet != null) {
-      nextX = x + (xMomentum * tick);
-      nextY = y + (yMomentum * tick);
-    }
+    xMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -xMomentum + entity.xMomentum));
+    yMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -yMomentum + entity.yMomentum));
   }
 
   @Override

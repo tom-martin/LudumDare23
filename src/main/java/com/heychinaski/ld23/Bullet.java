@@ -6,8 +6,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Bullet extends Entity {
-  float xMomentum, yMomentum;
-  
   float startX, startY;
   
   public Bullet(float x, float y, float xMomentum, float yMomentum) {
