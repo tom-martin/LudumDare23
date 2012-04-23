@@ -24,8 +24,8 @@ public class GrassBlob extends Entity {
   @Override
   public void render(Graphics2D g) {
     g = (Graphics2D) g.create();
-    g.translate(x + image.getWidth(null) / 2, y + image.getHeight(null) / 2);
     g.rotate(rot);
+    g.translate(x - image.getWidth(null) / 2, y - image.getHeight(null) / 2);
     g.drawImage(image, 0, 0, null);
     g.dispose();
   }

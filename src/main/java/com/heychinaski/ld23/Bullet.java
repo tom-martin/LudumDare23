@@ -49,7 +49,7 @@ public class Bullet extends Entity {
 
   @Override
   public void collided(Entity with, float tick, Game game) {
-    if(!(with instanceof Player)) game.removeBullet(this);
+    if(!(with instanceof Player) && !(with instanceof Cloud)) game.removeBullet(this);
   }
 
 }

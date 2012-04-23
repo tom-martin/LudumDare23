@@ -167,7 +167,7 @@ public class Game extends Canvas {
     while (running ) {
       long now = System.currentTimeMillis();
       float tick = (float)(now - last) / 1000;
-      if(!showTitle && !showGameover && !paused && Util.randomInt(200) == 0) System.out.println("Fps: " + 1f / tick);
+//      if(!showTitle && !showGameover && !paused && Util.randomInt(200) == 0) System.out.println("Fps: " + 1f / tick);
       last = now;
       
       if(input.isKeyDown(KeyEvent.VK_ESCAPE)) {
