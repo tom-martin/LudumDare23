@@ -58,6 +58,7 @@ public class Enemy extends Entity {
   @Override
   public void collided(Entity with, float tick, Game game) {
     if(with instanceof Bullet) {
+      game.playHitSound();
       game.removeBullet((Bullet) with);
       game.removeEnemy(this);
     }

@@ -34,6 +34,7 @@ public class Player extends Entity {
   
   private long lastFire = 0;
   private long lastHitTime;
+  private boolean rocketOn;
   
   static final float MAX_MOMENTUM = 1000;
   static final float ACC = 1000;
@@ -83,6 +84,15 @@ public class Player extends Entity {
     } else if(xMomentum > 0) xMomentum = Math.max(0, xMomentum - (tick * DAMP));
     else if(xMomentum < 0) xMomentum = Math.min(0, xMomentum + (tick * DAMP));
     
+    if(game.input.isKeyDown(KeyEvent.VK_W) || game.input.isKeyDown(KeyEvent.VK_S) || game.input.isKeyDown(KeyEvent.VK_A) || game.input.isKeyDown(KeyEvent.VK_D)) {
+      if(!rocketOn) {
+        game.playRocketSound();
+        rocketOn = true;
+      }
+    } else if(xMomentum == 0 && yMomentum == 0){
+      rocketOn = false;
+    }
+    
     nextX = x + (xMomentum * tick);
     nextY = y + (yMomentum * tick);
       
@@ -105,7 +115,8 @@ public class Player extends Entity {
       
       lastFire = System.currentTimeMillis();
       lastHeld = System.currentTimeMillis();
-    } else if(System.currentTimeMillis() - lastFire > FIRE_PAUSE){
+    } else if(System.currentTimeMillis() - lastFire > FIRE_PAUSE) {
+      game.playShootSound();
       Point2D.Float v = new Point2D.Float(game.input.getWorldMouseX() - x, game.input.getWorldMouseY() - y);
       Util.normalise(v);
       
@@ -129,6 +140,8 @@ public class Player extends Entity {
       lastHitTime = System.currentTimeMillis();
       xMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -xMomentum + with.xMomentum));
       yMomentum = Math.max(-MAX_MOMENTUM, Math.min(MAX_MOMENTUM, -yMomentum + with.yMomentum));
+      
+      game.playHurtSound();
     }
   }
   

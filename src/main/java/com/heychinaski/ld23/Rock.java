@@ -59,6 +59,7 @@ public class Rock extends SpaceJunk {
     if(entity instanceof Bullet) {
       game.removeBullet((Bullet)entity);
       game.removeRock(this);
+      game.playHitSound();
     }
     
     if( entity instanceof Rock && 
@@ -66,6 +67,13 @@ public class Rock extends SpaceJunk {
         !((Rock)entity).planet.maxSizeReached() &&
         System.currentTimeMillis() - brokenOffTime > 1000) {
       ((Rock)entity).planet.addRock(this);
+      
+      if( x > game.camera.x - (game.getWidth() / 2) &&
+          x < game.camera.x + (game.getWidth() / 2) &&
+          y > game.camera.y - (game.getHeight() / 2) &&
+          y < game.camera.y + (game.getHeight() / 2)) {
+        game.playHitPlanet();
+      }
       ((Rock)entity).grass.clear();
       return;
     }

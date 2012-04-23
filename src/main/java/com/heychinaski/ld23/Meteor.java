@@ -14,6 +14,7 @@ public class Meteor extends SpaceJunk {
   public void collided(Entity with, float tick, Game game) {
     if(with instanceof Bullet) {
       for(int i = 0; i < ((int)w / 50) + 5; i++) {
+        game.playAsplodeSound();
         Rock rock = new Rock();
         game.addRock(rock);
         game.removeMeteor(this);

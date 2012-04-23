@@ -18,6 +18,10 @@ import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 public class Game extends Canvas {
   private static final int METEOR_COUNT = 12;
 
@@ -85,6 +89,8 @@ public class Game extends Canvas {
   private Image pausedImage;
 
   private long pauseTime;
+
+  private long lastRocketSoundTime;
 
   public Game() {
     setIgnoreRepaint(true);
@@ -161,10 +167,12 @@ public class Game extends Canvas {
     while (running ) {
       long now = System.currentTimeMillis();
       float tick = (float)(now - last) / 1000;
-      if(Util.randomInt(200) == 0) System.out.println("Fps: " + 1f / tick);
+      if(!showTitle && !showGameover && !paused && Util.randomInt(200) == 0) System.out.println("Fps: " + 1f / tick);
       last = now;
       
-      if(input.isKeyDown(KeyEvent.VK_ESCAPE)) System.exit(0);
+      if(input.isKeyDown(KeyEvent.VK_ESCAPE)) {
+        System.exit(0);
+      }
       if(input.isKeyDown(KeyEvent.VK_P) && System.currentTimeMillis() - pauseTime > 500) {
         pauseTime = System.currentTimeMillis();
         paused = !paused;
@@ -555,5 +563,43 @@ public class Game extends Canvas {
   public void removeEnemy(Enemy enemy) {
     enemies.remove(enemy);
     entities.remove(enemy);
+  }
+  
+  public synchronized void playHurtSound() {
+    playSound("/hurt" + Util.randomInt(2) + ".wav");
+  }
+  
+  public synchronized void playAsplodeSound() {
+    playSound("/asplode" + Util.randomInt(2) + ".wav");
+  }
+  
+  public synchronized void playHitPlanet() {
+    playSound("/hitplanet" + Util.randomInt(2) + ".wav");
+  }
+  
+  public synchronized void playShootSound() {
+    playSound("/shoot" + Util.randomInt(2) + ".wav");
+  }
+  
+  public synchronized void playHitSound() {
+    playSound("/hit" + Util.randomInt(2) + ".wav");
+  }
+  
+  public synchronized void playRocketSound() {
+    if(System.currentTimeMillis() - lastRocketSoundTime > 2000) {
+      playSound("/rocket" + Util.randomInt(2) + ".wav");
+      lastRocketSoundTime = System.currentTimeMillis();
+    }
+  }
+
+  private void playSound(String soundLoc) {
+    try {
+      Clip clip = AudioSystem.getClip();
+      AudioInputStream inputStream = AudioSystem.getAudioInputStream(Game.this.getClass().getResourceAsStream(soundLoc));
+      clip.open(inputStream);
+      clip.start(); 
+    } catch (Exception e) {
+      System.err.println(e.getMessage());
+    }
   }
 }
