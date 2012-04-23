@@ -30,11 +30,12 @@ public class Player extends Entity {
   int xDir = -1;
   
   int aimX, aimY;
-  private long lastHeld;
+  private Rock lastHeld;
   
   private long lastFire = 0;
   private long lastHitTime;
   private boolean rocketOn;
+  private long lastHeldTime;
   
   static final float MAX_MOMENTUM = 1000;
   static final float ACC = 1000;
@@ -111,10 +112,11 @@ public class Player extends Entity {
       heldRock.yMomentum = yMomentum + (v.y * THROW_SPEED);
       
       
+      lastHeld = heldRock;
       heldRock = null;
       
       lastFire = System.currentTimeMillis();
-      lastHeld = System.currentTimeMillis();
+      lastHeldTime = System.currentTimeMillis();
     } else if(System.currentTimeMillis() - lastFire > FIRE_PAUSE) {
       game.playShootSound();
       Point2D.Float v = new Point2D.Float(game.input.getWorldMouseX() - x, game.input.getWorldMouseY() - y);
@@ -129,7 +131,7 @@ public class Player extends Entity {
   
   @Override
   public void collided(Entity with, float tick, Game game) {
-    if(heldRock == null && with instanceof Rock && (System.currentTimeMillis() - lastHeld) > 2000) {
+    if(heldRock == null && with instanceof Rock && (with != lastHeld || (System.currentTimeMillis() - lastHeldTime) > 2000)) {
       if(((Rock)with).setHeld(true)) {
         heldRock = (Rock)with;
       }

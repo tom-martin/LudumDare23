@@ -22,6 +22,7 @@ public class IceBlock extends Rock {
         game.addCloud(cloud);
         
         game.removeIceBlock(this);
+        game.playHitPlanet();
       }
     }
   }

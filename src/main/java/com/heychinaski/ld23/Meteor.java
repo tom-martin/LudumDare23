@@ -2,12 +2,17 @@ package com.heychinaski.ld23;
 
 import static com.heychinaski.ld23.Util.randomInt;
 
+import java.awt.Color;
+
 public class Meteor extends SpaceJunk {
   
   Pointer pointer;
 
   public Meteor() {
     super(300, 200, 0);
+    
+    outlineColor = new Color(150, 100, 10);
+    fillColor = new Color(200, 150, 50);
   }
 
   @Override
