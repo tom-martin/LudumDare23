@@ -160,6 +160,13 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4186"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -168,9 +175,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="2690.0596"
-     inkscape:cy="-2841.8992"
+     inkscape:zoom="0.175"
+     inkscape:cx="4554.7747"
+     inkscape:cy="-3111.4895"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -197,18 +204,21 @@
      id="layer1">
     <text
        xml:space="preserve"
-       style="font-size:154.10879517000001000px;font-style:normal;font-weight:normal;fill:#58de00;fill-opacity:1;stroke:#087c2b;font-family:Bitstream Vera Sans;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="font-size:154.10879517px;font-style:normal;font-weight:normal;fill:#58de00;fill-opacity:1;stroke:#087c2b;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Bitstream Vera Sans"
        x="3711.2881"
        y="3018.4167"
-       id="text4130"><tspan
+       id="text4130"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\gameover.png"
+       inkscape:export-xdpi="20.788378"
+       inkscape:export-ydpi="20.788378"><tspan
          sodipodi:role="line"
          id="tspan4132"
          x="3711.2881"
-         y="3018.4167">Game over!</tspan><tspan
+         y="3018.4167">game over!</tspan><tspan
          sodipodi:role="line"
          x="3711.2881"
          y="3211.0527"
-         id="tspan4134">Score:</tspan></text>
+         id="tspan4134">score:</tspan></text>
     <path
        inkscape:export-ydpi="26.787727"
        inkscape:export-xdpi="26.787727"
@@ -2274,5 +2284,31 @@
        inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\9.png"
        inkscape:export-xdpi="20.830318"
        inkscape:export-ydpi="20.830318" />
+    <text
+       xml:space="preserve"
+       style="font-size:178.95213318000000000px;font-style:normal;font-weight:normal;fill:#bababa;fill-opacity:1;stroke:#000000;font-family:Arial Black;-inkscape-font-specification:Arial Black;stroke-opacity:1;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none"
+       x="3394.3008"
+       y="4122.0947"
+       id="text4174"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\0.png"
+       inkscape:export-xdpi="20.624819"
+       inkscape:export-ydpi="20.624819"><tspan
+         sodipodi:role="line"
+         id="tspan4176"
+         x="3394.3008"
+         y="4122.0947">0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:154.10879517px;font-style:normal;font-weight:normal;fill:#58de00;fill-opacity:1;stroke:#087c2b;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Bitstream Vera Sans"
+       x="3543.0247"
+       y="4696.9155"
+       id="text4130-9"
+       inkscape:export-filename="C:\Users\tomm\workspace\ludumdare\ld23_tinyworld\src\main\resources\paused.png"
+       inkscape:export-xdpi="20.788378"
+       inkscape:export-ydpi="20.788378"><tspan
+         sodipodi:role="line"
+         x="3543.0247"
+         y="4696.9155"
+         id="tspan4134-5">paused (press p)</tspan></text>
   </g>
 </svg>
